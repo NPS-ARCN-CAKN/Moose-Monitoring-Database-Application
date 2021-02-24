@@ -441,6 +441,8 @@ Partial Public Class MooseDataSet
         
         Private columnStratName As Global.System.Data.DataColumn
         
+        Private columnSubArea As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -949,6 +951,14 @@ Partial Public Class MooseDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SubAreaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSubArea
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1044,9 +1054,10 @@ Partial Public Class MooseDataSet
                     ByVal Exclude As Boolean,  _
                     ByVal GMU As String,  _
                     ByVal Pilot As String,  _
-                    ByVal StratName As String) As GSPERow
+                    ByVal StratName As String,  _
+                    ByVal SubArea As String) As GSPERow
             Dim rowGSPERow As GSPERow = CType(Me.NewRow,GSPERow)
-            Dim columnValuesArray() As Object = New Object() {Park, Nothing, SurveyYear, Season, ID, StartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counted, Strat, StratMoose, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Flown, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename, RecordInsertedDate, RecordInsertedBy, CertificationDate, CertifiedBy, CertificationLevel, Exclude, GMU, Pilot, StratName}
+            Dim columnValuesArray() As Object = New Object() {Park, Nothing, SurveyYear, Season, ID, StartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counted, Strat, StratMoose, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Flown, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename, RecordInsertedDate, RecordInsertedBy, CertificationDate, CertifiedBy, CertificationLevel, Exclude, GMU, Pilot, StratName, SubArea}
             If (Not (parentGSPE_SurveysRowByFK_GSPE_GSPE_Surveys1) Is Nothing) Then
                 columnValuesArray(1) = parentGSPE_SurveysRowByFK_GSPE_GSPE_Surveys1(0)
             End If
@@ -1137,6 +1148,7 @@ Partial Public Class MooseDataSet
             Me.columnGMU = MyBase.Columns("GMU")
             Me.columnPilot = MyBase.Columns("Pilot")
             Me.columnStratName = MyBase.Columns("StratName")
+            Me.columnSubArea = MyBase.Columns("SubArea")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1260,6 +1272,8 @@ Partial Public Class MooseDataSet
             MyBase.Columns.Add(Me.columnPilot)
             Me.columnStratName = New Global.System.Data.DataColumn("StratName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStratName)
+            Me.columnSubArea = New Global.System.Data.DataColumn("SubArea", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSubArea)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSurveyName, Me.columnSurveyYear, Me.columnID}, true))
             Me.columnPark.AllowDBNull = false
             Me.columnPark.MaxLength = 4
@@ -1271,6 +1285,8 @@ Partial Public Class MooseDataSet
             Me.columnID.MaxLength = 10
             Me.columnStrat.MaxLength = 1
             Me.columnStratHab.MaxLength = 100
+            Me.columnMED_BULL.Caption = "Bull, medium"
+            Me.columnYBULL_SF.Caption = "Bull, spike fork"
             Me.columnComments.MaxLength = 255
             Me.columnSourceFilename.MaxLength = 255
             Me.columnRecordInsertedDate.AllowDBNull = false
@@ -1282,6 +1298,7 @@ Partial Public Class MooseDataSet
             Me.columnGMU.MaxLength = 20
             Me.columnPilot.MaxLength = 50
             Me.columnStratName.MaxLength = 10
+            Me.columnSubArea.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2896,6 +2913,21 @@ Partial Public Class MooseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property SubArea() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGSPE.SubAreaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SubArea' in table 'GSPE' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGSPE.SubAreaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property GSPE_SurveysRow() As GSPE_SurveysRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_GSPE_GSPE_Surveys1")),GSPE_SurveysRow)
@@ -3527,6 +3559,18 @@ Partial Public Class MooseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetStratNameNull()
             Me(Me.tableGSPE.StratNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSubAreaNull() As Boolean
+            Return Me.IsNull(Me.tableGSPE.SubAreaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSubAreaNull()
+            Me(Me.tableGSPE.SubAreaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4431,72 +4475,74 @@ Namespace MooseDataSetTableAdapters
             tableMapping.ColumnMappings.Add("GMU", "GMU")
             tableMapping.ColumnMappings.Add("Pilot", "Pilot")
             tableMapping.ColumnMappings.Add("StratName", "StratName")
+            tableMapping.ColumnMappings.Add("SubArea", "SubArea")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[GSPE] WHERE (([Park] = @Original_Park) AND ([SurveyName] = @Or"& _ 
-                "iginal_SurveyName) AND ([SurveyYear] = @Original_SurveyYear) AND ((@IsNull_Seaso"& _ 
-                "n = 1 AND [Season] IS NULL) OR ([Season] = @Original_Season)) AND ([ID] = @Origi"& _ 
-                "nal_ID) AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @"& _ 
-                "Original_StartDate)) AND ((@IsNull_StopDate = 1 AND [StopDate] IS NULL) OR ([Sto"& _ 
-                "pDate] = @Original_StopDate)) AND ((@IsNull_IntID = 1 AND [IntID] IS NULL) OR (["& _ 
-                "IntID] = @Original_IntID)) AND ((@IsNull_Rand = 1 AND [Rand] IS NULL) OR ([Rand]"& _ 
-                " = @Original_Rand)) AND ((@IsNull_FiringOrder = 1 AND [FiringOrder] IS NULL) OR "& _ 
-                "([FiringOrder] = @Original_FiringOrder)) AND ((@IsNull_Selected = 1 AND [Selecte"& _ 
-                "d] IS NULL) OR ([Selected] = @Original_Selected)) AND ((@IsNull_Counted = 1 AND "& _ 
-                "[Counted] IS NULL) OR ([Counted] = @Original_Counted)) AND ((@IsNull_Strat = 1 A"& _ 
-                "ND [Strat] IS NULL) OR ([Strat] = @Original_Strat)) AND ((@IsNull_StratMoose = 1"& _ 
-                " AND [StratMoose] IS NULL) OR ([StratMoose] = @Original_StratMoose)) AND ((@IsNu"& _ 
-                "ll_StratTracks = 1 AND [StratTracks] IS NULL) OR ([StratTracks] = @Original_Stra"& _ 
-                "tTracks)) AND ((@IsNull_StratHab = 1 AND [StratHab] IS NULL) OR ([StratHab] = @O"& _ 
-                "riginal_StratHab)) AND ((@IsNull_SearchMin = 1 AND [SearchMin] IS NULL) OR ([Sea"& _ 
-                "rchMin] = @Original_SearchMin)) AND ((@IsNull_DateCounted = 1 AND [DateCounted] "& _ 
-                "IS NULL) OR ([DateCounted] = @Original_DateCounted)) AND ((@IsNull_Perc_Not_Flow"& _ 
-                "n = 1 AND [Perc_Not_Flown] IS NULL) OR ([Perc_Not_Flown] = @Original_Perc_Not_Fl"& _ 
-                "own)) AND ((@IsNull_X_COORD = 1 AND [X_COORD] IS NULL) OR ([X_COORD] = @Original"& _ 
-                "_X_COORD)) AND ((@IsNull_Y_COORD = 1 AND [Y_COORD] IS NULL) OR ([Y_COORD] = @Ori"& _ 
-                "ginal_Y_COORD)) AND ((@IsNull_Area_SqMi = 1 AND [Area_SqMi] IS NULL) OR ([Area_S"& _ 
-                "qMi] = @Original_Area_SqMi)) AND ((@IsNull_ADULT = 1 AND [ADULT] IS NULL) OR ([A"& _ 
-                "DULT] = @Original_ADULT)) AND ((@IsNull_BULL_30_40 = 1 AND [BULL_30_40] IS NULL)"& _ 
-                " OR ([BULL_30_40] = @Original_BULL_30_40)) AND ((@IsNull_BULL_30_50 = 1 AND [BUL"& _ 
-                "L_30_50] IS NULL) OR ([BULL_30_50] = @Original_BULL_30_50)) AND ((@IsNull_BULL_3"& _ 
-                "0_60 = 1 AND [BULL_30_60] IS NULL) OR ([BULL_30_60] = @Original_BULL_30_60)) AND"& _ 
-                " ((@IsNull_BULL_41_50 = 1 AND [BULL_41_50] IS NULL) OR ([BULL_41_50] = @Original"& _ 
-                "_BULL_41_50)) AND ((@IsNull_BULL_ALL = 1 AND [BULL_ALL] IS NULL) OR ([BULL_ALL] "& _ 
-                "= @Original_BULL_ALL)) AND ((@IsNull_BULL_GT_50 = 1 AND [BULL_GT_50] IS NULL) OR"& _ 
-                " ([BULL_GT_50] = @Original_BULL_GT_50)) AND ((@IsNull_BULL_GT_60 = 1 AND [BULL_G"& _ 
-                "T_60] IS NULL) OR ([BULL_GT_60] = @Original_BULL_GT_60)) AND ((@IsNull_BULL_GTE_"& _ 
-                "50 = 1 AND [BULL_GTE_50] IS NULL) OR ([BULL_GTE_50] = @Original_BULL_GTE_50)) AN"& _ 
-                "D ((@IsNull_BULL_LT_30 = 1 AND [BULL_LT_30] IS NULL) OR ([BULL_LT_30] = @Origina"& _ 
-                "l_BULL_LT_30)) AND ((@IsNull_BULL_LT_50 = 1 AND [BULL_LT_50] IS NULL) OR ([BULL_"& _ 
-                "LT_50] = @Original_BULL_LT_50)) AND ((@IsNull_CALF = 1 AND [CALF] IS NULL) OR (["& _ 
-                "CALF] = @Original_CALF)) AND ((@IsNull_COW = 1 AND [COW] IS NULL) OR ([COW] = @O"& _ 
-                "riginal_COW)) AND ((@IsNull_COW_W_0 = 1 AND [COW_W_0] IS NULL) OR ([COW_W_0] = @"& _ 
-                "Original_COW_W_0)) AND ((@IsNull_COW_W_1 = 1 AND [COW_W_1] IS NULL) OR ([COW_W_1"& _ 
-                "] = @Original_COW_W_1)) AND ((@IsNull_COW_W_2 = 1 AND [COW_W_2] IS NULL) OR ([CO"& _ 
-                "W_W_2] = @Original_COW_W_2)) AND ((@IsNull_COW_W_3 = 1 AND [COW_W_3] IS NULL) OR"& _ 
-                " ([COW_W_3] = @Original_COW_W_3)) AND ((@IsNull_LG_BULL = 1 AND [LG_BULL] IS NUL"& _ 
-                "L) OR ([LG_BULL] = @Original_LG_BULL)) AND ((@IsNull_MED_BULL = 1 AND [MED_BULL]"& _ 
-                " IS NULL) OR ([MED_BULL] = @Original_MED_BULL)) AND ((@IsNull_MED_L_BULL = 1 AND"& _ 
-                " [MED_L_BULL] IS NULL) OR ([MED_L_BULL] = @Original_MED_L_BULL)) AND ((@IsNull_S"& _ 
-                "M_BULL = 1 AND [SM_BULL] IS NULL) OR ([SM_BULL] = @Original_SM_BULL)) AND ((@IsN"& _ 
-                "ull_UNKNOWN = 1 AND [UNKNOWN] IS NULL) OR ([UNKNOWN] = @Original_UNKNOWN)) AND ("& _ 
-                "(@IsNull_YBULL_ALL = 1 AND [YBULL_ALL] IS NULL) OR ([YBULL_ALL] = @Original_YBUL"& _ 
-                "L_ALL)) AND ((@IsNull_YBULL_GTSF = 1 AND [YBULL_GTSF] IS NULL) OR ([YBULL_GTSF] "& _ 
-                "= @Original_YBULL_GTSF)) AND ((@IsNull_YBULL_SF = 1 AND [YBULL_SF] IS NULL) OR ("& _ 
-                "[YBULL_SF] = @Original_YBULL_SF)) AND ((@IsNull_MOOSE = 1 AND [MOOSE] IS NULL) O"& _ 
-                "R ([MOOSE] = @Original_MOOSE)) AND ((@IsNull_Comments = 1 AND [Comments] IS NULL"& _ 
-                ") OR ([Comments] = @Original_Comments)) AND ((@IsNull_SourceFilename = 1 AND [So"& _ 
-                "urceFilename] IS NULL) OR ([SourceFilename] = @Original_SourceFilename)) AND ([R"& _ 
-                "ecordInsertedDate] = @Original_RecordInsertedDate) AND ([RecordInsertedBy] = @Or"& _ 
-                "iginal_RecordInsertedBy) AND ((@IsNull_CertificationDate = 1 AND [CertificationD"& _ 
-                "ate] IS NULL) OR ([CertificationDate] = @Original_CertificationDate)) AND ((@IsN"& _ 
-                "ull_CertifiedBy = 1 AND [CertifiedBy] IS NULL) OR ([CertifiedBy] = @Original_Cer"& _ 
-                "tifiedBy)) AND ([CertificationLevel] = @Original_CertificationLevel) AND ((@IsNu"& _ 
-                "ll_Exclude = 1 AND [Exclude] IS NULL) OR ([Exclude] = @Original_Exclude)) AND (("& _ 
-                "@IsNull_GMU = 1 AND [GMU] IS NULL) OR ([GMU] = @Original_GMU)) AND ((@IsNull_Pil"& _ 
-                "ot = 1 AND [Pilot] IS NULL) OR ([Pilot] = @Original_Pilot)) AND ((@IsNull_StratN"& _ 
-                "ame = 1 AND [StratName] IS NULL) OR ([StratName] = @Original_StratName)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [GSPE] WHERE (([Park] = @Original_Park) AND ([SurveyName] = @Original"& _ 
+                "_SurveyName) AND ([SurveyYear] = @Original_SurveyYear) AND ((@IsNull_Season = 1 "& _ 
+                "AND [Season] IS NULL) OR ([Season] = @Original_Season)) AND ([ID] = @Original_ID"& _ 
+                ") AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Origin"& _ 
+                "al_StartDate)) AND ((@IsNull_StopDate = 1 AND [StopDate] IS NULL) OR ([StopDate]"& _ 
+                " = @Original_StopDate)) AND ((@IsNull_IntID = 1 AND [IntID] IS NULL) OR ([IntID]"& _ 
+                " = @Original_IntID)) AND ((@IsNull_Rand = 1 AND [Rand] IS NULL) OR ([Rand] = @Or"& _ 
+                "iginal_Rand)) AND ((@IsNull_FiringOrder = 1 AND [FiringOrder] IS NULL) OR ([Firi"& _ 
+                "ngOrder] = @Original_FiringOrder)) AND ((@IsNull_Selected = 1 AND [Selected] IS "& _ 
+                "NULL) OR ([Selected] = @Original_Selected)) AND ((@IsNull_Counted = 1 AND [Count"& _ 
+                "ed] IS NULL) OR ([Counted] = @Original_Counted)) AND ((@IsNull_Strat = 1 AND [St"& _ 
+                "rat] IS NULL) OR ([Strat] = @Original_Strat)) AND ((@IsNull_StratMoose = 1 AND ["& _ 
+                "StratMoose] IS NULL) OR ([StratMoose] = @Original_StratMoose)) AND ((@IsNull_Str"& _ 
+                "atTracks = 1 AND [StratTracks] IS NULL) OR ([StratTracks] = @Original_StratTrack"& _ 
+                "s)) AND ((@IsNull_StratHab = 1 AND [StratHab] IS NULL) OR ([StratHab] = @Origina"& _ 
+                "l_StratHab)) AND ((@IsNull_SearchMin = 1 AND [SearchMin] IS NULL) OR ([SearchMin"& _ 
+                "] = @Original_SearchMin)) AND ((@IsNull_DateCounted = 1 AND [DateCounted] IS NUL"& _ 
+                "L) OR ([DateCounted] = @Original_DateCounted)) AND ((@IsNull_Perc_Not_Flown = 1 "& _ 
+                "AND [Perc_Not_Flown] IS NULL) OR ([Perc_Not_Flown] = @Original_Perc_Not_Flown)) "& _ 
+                "AND ((@IsNull_X_COORD = 1 AND [X_COORD] IS NULL) OR ([X_COORD] = @Original_X_COO"& _ 
+                "RD)) AND ((@IsNull_Y_COORD = 1 AND [Y_COORD] IS NULL) OR ([Y_COORD] = @Original_"& _ 
+                "Y_COORD)) AND ((@IsNull_Area_SqMi = 1 AND [Area_SqMi] IS NULL) OR ([Area_SqMi] ="& _ 
+                " @Original_Area_SqMi)) AND ((@IsNull_ADULT = 1 AND [ADULT] IS NULL) OR ([ADULT] "& _ 
+                "= @Original_ADULT)) AND ((@IsNull_BULL_30_40 = 1 AND [BULL_30_40] IS NULL) OR (["& _ 
+                "BULL_30_40] = @Original_BULL_30_40)) AND ((@IsNull_BULL_30_50 = 1 AND [BULL_30_5"& _ 
+                "0] IS NULL) OR ([BULL_30_50] = @Original_BULL_30_50)) AND ((@IsNull_BULL_30_60 ="& _ 
+                " 1 AND [BULL_30_60] IS NULL) OR ([BULL_30_60] = @Original_BULL_30_60)) AND ((@Is"& _ 
+                "Null_BULL_41_50 = 1 AND [BULL_41_50] IS NULL) OR ([BULL_41_50] = @Original_BULL_"& _ 
+                "41_50)) AND ((@IsNull_BULL_ALL = 1 AND [BULL_ALL] IS NULL) OR ([BULL_ALL] = @Ori"& _ 
+                "ginal_BULL_ALL)) AND ((@IsNull_BULL_GT_50 = 1 AND [BULL_GT_50] IS NULL) OR ([BUL"& _ 
+                "L_GT_50] = @Original_BULL_GT_50)) AND ((@IsNull_BULL_GT_60 = 1 AND [BULL_GT_60] "& _ 
+                "IS NULL) OR ([BULL_GT_60] = @Original_BULL_GT_60)) AND ((@IsNull_BULL_GTE_50 = 1"& _ 
+                " AND [BULL_GTE_50] IS NULL) OR ([BULL_GTE_50] = @Original_BULL_GTE_50)) AND ((@I"& _ 
+                "sNull_BULL_LT_30 = 1 AND [BULL_LT_30] IS NULL) OR ([BULL_LT_30] = @Original_BULL"& _ 
+                "_LT_30)) AND ((@IsNull_BULL_LT_50 = 1 AND [BULL_LT_50] IS NULL) OR ([BULL_LT_50]"& _ 
+                " = @Original_BULL_LT_50)) AND ((@IsNull_CALF = 1 AND [CALF] IS NULL) OR ([CALF] "& _ 
+                "= @Original_CALF)) AND ((@IsNull_COW = 1 AND [COW] IS NULL) OR ([COW] = @Origina"& _ 
+                "l_COW)) AND ((@IsNull_COW_W_0 = 1 AND [COW_W_0] IS NULL) OR ([COW_W_0] = @Origin"& _ 
+                "al_COW_W_0)) AND ((@IsNull_COW_W_1 = 1 AND [COW_W_1] IS NULL) OR ([COW_W_1] = @O"& _ 
+                "riginal_COW_W_1)) AND ((@IsNull_COW_W_2 = 1 AND [COW_W_2] IS NULL) OR ([COW_W_2]"& _ 
+                " = @Original_COW_W_2)) AND ((@IsNull_COW_W_3 = 1 AND [COW_W_3] IS NULL) OR ([COW"& _ 
+                "_W_3] = @Original_COW_W_3)) AND ((@IsNull_LG_BULL = 1 AND [LG_BULL] IS NULL) OR "& _ 
+                "([LG_BULL] = @Original_LG_BULL)) AND ((@IsNull_MED_BULL = 1 AND [MED_BULL] IS NU"& _ 
+                "LL) OR ([MED_BULL] = @Original_MED_BULL)) AND ((@IsNull_MED_L_BULL = 1 AND [MED_"& _ 
+                "L_BULL] IS NULL) OR ([MED_L_BULL] = @Original_MED_L_BULL)) AND ((@IsNull_SM_BULL"& _ 
+                " = 1 AND [SM_BULL] IS NULL) OR ([SM_BULL] = @Original_SM_BULL)) AND ((@IsNull_UN"& _ 
+                "KNOWN = 1 AND [UNKNOWN] IS NULL) OR ([UNKNOWN] = @Original_UNKNOWN)) AND ((@IsNu"& _ 
+                "ll_YBULL_ALL = 1 AND [YBULL_ALL] IS NULL) OR ([YBULL_ALL] = @Original_YBULL_ALL)"& _ 
+                ") AND ((@IsNull_YBULL_GTSF = 1 AND [YBULL_GTSF] IS NULL) OR ([YBULL_GTSF] = @Ori"& _ 
+                "ginal_YBULL_GTSF)) AND ((@IsNull_YBULL_SF = 1 AND [YBULL_SF] IS NULL) OR ([YBULL"& _ 
+                "_SF] = @Original_YBULL_SF)) AND ((@IsNull_MOOSE = 1 AND [MOOSE] IS NULL) OR ([MO"& _ 
+                "OSE] = @Original_MOOSE)) AND ((@IsNull_Comments = 1 AND [Comments] IS NULL) OR ("& _ 
+                "[Comments] = @Original_Comments)) AND ((@IsNull_SourceFilename = 1 AND [SourceFi"& _ 
+                "lename] IS NULL) OR ([SourceFilename] = @Original_SourceFilename)) AND ([RecordI"& _ 
+                "nsertedDate] = @Original_RecordInsertedDate) AND ([RecordInsertedBy] = @Original"& _ 
+                "_RecordInsertedBy) AND ((@IsNull_CertificationDate = 1 AND [CertificationDate] I"& _ 
+                "S NULL) OR ([CertificationDate] = @Original_CertificationDate)) AND ((@IsNull_Ce"& _ 
+                "rtifiedBy = 1 AND [CertifiedBy] IS NULL) OR ([CertifiedBy] = @Original_Certified"& _ 
+                "By)) AND ([CertificationLevel] = @Original_CertificationLevel) AND ((@IsNull_Exc"& _ 
+                "lude = 1 AND [Exclude] IS NULL) OR ([Exclude] = @Original_Exclude)) AND ((@IsNul"& _ 
+                "l_GMU = 1 AND [GMU] IS NULL) OR ([GMU] = @Original_GMU)) AND ((@IsNull_Pilot = 1"& _ 
+                " AND [Pilot] IS NULL) OR ([Pilot] = @Original_Pilot)) AND ((@IsNull_StratName = "& _ 
+                "1 AND [StratName] IS NULL) OR ([StratName] = @Original_StratName)) AND ((@IsNull"& _ 
+                "_SubArea = 1 AND [SubArea] IS NULL) OR ([SubArea] = @Original_SubArea)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Park", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Park", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SurveyName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SurveyName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -4609,36 +4655,38 @@ Namespace MooseDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pilot", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pilot", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StratName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StratName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StratName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StratName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SubArea", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SubArea", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SubArea", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SubArea", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[GSPE] ([Park], [SurveyName], [SurveyYear], [Season], [ID], [St"& _ 
-                "artDate], [StopDate], [IntID], [Rand], [FiringOrder], [Selected], [Counted], [St"& _ 
-                "rat], [StratMoose], [StratTracks], [StratHab], [SearchMin], [DateCounted], [Perc"& _ 
-                "_Not_Flown], [X_COORD], [Y_COORD], [Area_SqMi], [ADULT], [BULL_30_40], [BULL_30_"& _ 
-                "50], [BULL_30_60], [BULL_41_50], [BULL_ALL], [BULL_GT_50], [BULL_GT_60], [BULL_G"& _ 
-                "TE_50], [BULL_LT_30], [BULL_LT_50], [CALF], [COW], [COW_W_0], [COW_W_1], [COW_W_"& _ 
-                "2], [COW_W_3], [LG_BULL], [MED_BULL], [MED_L_BULL], [SM_BULL], [UNKNOWN], [YBULL"& _ 
-                "_ALL], [YBULL_GTSF], [YBULL_SF], [MOOSE], [Comments], [SourceFilename], [RecordI"& _ 
-                "nsertedDate], [RecordInsertedBy], [CertificationDate], [CertifiedBy], [Certifica"& _ 
-                "tionLevel], [Exclude], [GMU], [Pilot], [StratName]) VALUES (@Park, @SurveyName, "& _ 
-                "@SurveyYear, @Season, @ID, @StartDate, @StopDate, @IntID, @Rand, @FiringOrder, @"& _ 
-                "Selected, @Counted, @Strat, @StratMoose, @StratTracks, @StratHab, @SearchMin, @D"& _ 
-                "ateCounted, @Perc_Not_Flown, @X_COORD, @Y_COORD, @Area_SqMi, @ADULT, @BULL_30_40"& _ 
-                ", @BULL_30_50, @BULL_30_60, @BULL_41_50, @BULL_ALL, @BULL_GT_50, @BULL_GT_60, @B"& _ 
-                "ULL_GTE_50, @BULL_LT_30, @BULL_LT_50, @CALF, @COW, @COW_W_0, @COW_W_1, @COW_W_2,"& _ 
-                " @COW_W_3, @LG_BULL, @MED_BULL, @MED_L_BULL, @SM_BULL, @UNKNOWN, @YBULL_ALL, @YB"& _ 
-                "ULL_GTSF, @YBULL_SF, @MOOSE, @Comments, @SourceFilename, @RecordInsertedDate, @R"& _ 
-                "ecordInsertedBy, @CertificationDate, @CertifiedBy, @CertificationLevel, @Exclude"& _ 
-                ", @GMU, @Pilot, @StratName);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Park, SurveyName, SurveyYear, Season, ID, S"& _ 
-                "tartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counted, Strat, StratMoo"& _ 
-                "se, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Flown, X_COORD, Y_CO"& _ 
-                "ORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_ALL,"& _ 
-                " BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_W_0"& _ 
-                ", COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YB"& _ 
-                "ULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename, RecordInsertedDa"& _ 
-                "te, RecordInsertedBy, CertificationDate, CertifiedBy, CertificationLevel, Exclud"& _ 
-                "e, GMU, Pilot, StratName FROM GSPE WHERE (ID = @ID) AND (SurveyName = @SurveyNam"& _ 
-                "e) AND (SurveyYear = @SurveyYear)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [GSPE] ([Park], [SurveyName], [SurveyYear], [Season], [ID], [StartDat"& _ 
+                "e], [StopDate], [IntID], [Rand], [FiringOrder], [Selected], [Counted], [Strat], "& _ 
+                "[StratMoose], [StratTracks], [StratHab], [SearchMin], [DateCounted], [Perc_Not_F"& _ 
+                "lown], [X_COORD], [Y_COORD], [Area_SqMi], [ADULT], [BULL_30_40], [BULL_30_50], ["& _ 
+                "BULL_30_60], [BULL_41_50], [BULL_ALL], [BULL_GT_50], [BULL_GT_60], [BULL_GTE_50]"& _ 
+                ", [BULL_LT_30], [BULL_LT_50], [CALF], [COW], [COW_W_0], [COW_W_1], [COW_W_2], [C"& _ 
+                "OW_W_3], [LG_BULL], [MED_BULL], [MED_L_BULL], [SM_BULL], [UNKNOWN], [YBULL_ALL],"& _ 
+                " [YBULL_GTSF], [YBULL_SF], [MOOSE], [Comments], [SourceFilename], [RecordInserte"& _ 
+                "dDate], [RecordInsertedBy], [CertificationDate], [CertifiedBy], [CertificationLe"& _ 
+                "vel], [Exclude], [GMU], [Pilot], [StratName], [SubArea]) VALUES (@Park, @SurveyN"& _ 
+                "ame, @SurveyYear, @Season, @ID, @StartDate, @StopDate, @IntID, @Rand, @FiringOrd"& _ 
+                "er, @Selected, @Counted, @Strat, @StratMoose, @StratTracks, @StratHab, @SearchMi"& _ 
+                "n, @DateCounted, @Perc_Not_Flown, @X_COORD, @Y_COORD, @Area_SqMi, @ADULT, @BULL_"& _ 
+                "30_40, @BULL_30_50, @BULL_30_60, @BULL_41_50, @BULL_ALL, @BULL_GT_50, @BULL_GT_6"& _ 
+                "0, @BULL_GTE_50, @BULL_LT_30, @BULL_LT_50, @CALF, @COW, @COW_W_0, @COW_W_1, @COW"& _ 
+                "_W_2, @COW_W_3, @LG_BULL, @MED_BULL, @MED_L_BULL, @SM_BULL, @UNKNOWN, @YBULL_ALL"& _ 
+                ", @YBULL_GTSF, @YBULL_SF, @MOOSE, @Comments, @SourceFilename, @RecordInsertedDat"& _ 
+                "e, @RecordInsertedBy, @CertificationDate, @CertifiedBy, @CertificationLevel, @Ex"& _ 
+                "clude, @GMU, @Pilot, @StratName, @SubArea);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Park, SurveyName, SurveyYear"& _ 
+                ", Season, ID, StartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counted, "& _ 
+                "Strat, StratMoose, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Flown"& _ 
+                ", X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_4"& _ 
+                "1_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CAL"& _ 
+                "F, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM_BU"& _ 
+                "LL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename, R"& _ 
+                "ecordInsertedDate, RecordInsertedBy, CertificationDate, CertifiedBy, Certificati"& _ 
+                "onLevel, Exclude, GMU, Pilot, StratName, SubArea FROM GSPE WHERE (ID = @ID) AND "& _ 
+                "(SurveyName = @SurveyName) AND (SurveyYear = @SurveyYear)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Park", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Park", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SurveyName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SurveyName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4699,99 +4747,102 @@ Namespace MooseDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GMU", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GMU", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pilot", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pilot", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StratName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StratName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SubArea", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SubArea", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[GSPE] SET [Park] = @Park, [SurveyName] = @SurveyName, [SurveyYear] "& _ 
-                "= @SurveyYear, [Season] = @Season, [ID] = @ID, [StartDate] = @StartDate, [StopDa"& _ 
-                "te] = @StopDate, [IntID] = @IntID, [Rand] = @Rand, [FiringOrder] = @FiringOrder,"& _ 
-                " [Selected] = @Selected, [Counted] = @Counted, [Strat] = @Strat, [StratMoose] = "& _ 
-                "@StratMoose, [StratTracks] = @StratTracks, [StratHab] = @StratHab, [SearchMin] ="& _ 
-                " @SearchMin, [DateCounted] = @DateCounted, [Perc_Not_Flown] = @Perc_Not_Flown, ["& _ 
-                "X_COORD] = @X_COORD, [Y_COORD] = @Y_COORD, [Area_SqMi] = @Area_SqMi, [ADULT] = @"& _ 
-                "ADULT, [BULL_30_40] = @BULL_30_40, [BULL_30_50] = @BULL_30_50, [BULL_30_60] = @B"& _ 
-                "ULL_30_60, [BULL_41_50] = @BULL_41_50, [BULL_ALL] = @BULL_ALL, [BULL_GT_50] = @B"& _ 
-                "ULL_GT_50, [BULL_GT_60] = @BULL_GT_60, [BULL_GTE_50] = @BULL_GTE_50, [BULL_LT_30"& _ 
-                "] = @BULL_LT_30, [BULL_LT_50] = @BULL_LT_50, [CALF] = @CALF, [COW] = @COW, [COW_"& _ 
-                "W_0] = @COW_W_0, [COW_W_1] = @COW_W_1, [COW_W_2] = @COW_W_2, [COW_W_3] = @COW_W_"& _ 
-                "3, [LG_BULL] = @LG_BULL, [MED_BULL] = @MED_BULL, [MED_L_BULL] = @MED_L_BULL, [SM"& _ 
-                "_BULL] = @SM_BULL, [UNKNOWN] = @UNKNOWN, [YBULL_ALL] = @YBULL_ALL, [YBULL_GTSF] "& _ 
-                "= @YBULL_GTSF, [YBULL_SF] = @YBULL_SF, [MOOSE] = @MOOSE, [Comments] = @Comments,"& _ 
-                " [SourceFilename] = @SourceFilename, [RecordInsertedDate] = @RecordInsertedDate,"& _ 
-                " [RecordInsertedBy] = @RecordInsertedBy, [CertificationDate] = @CertificationDat"& _ 
-                "e, [CertifiedBy] = @CertifiedBy, [CertificationLevel] = @CertificationLevel, [Ex"& _ 
-                "clude] = @Exclude, [GMU] = @GMU, [Pilot] = @Pilot, [StratName] = @StratName WHER"& _ 
-                "E (([Park] = @Original_Park) AND ([SurveyName] = @Original_SurveyName) AND ([Sur"& _ 
-                "veyYear] = @Original_SurveyYear) AND ((@IsNull_Season = 1 AND [Season] IS NULL) "& _ 
-                "OR ([Season] = @Original_Season)) AND ([ID] = @Original_ID) AND ((@IsNull_StartD"& _ 
-                "ate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@"& _ 
-                "IsNull_StopDate = 1 AND [StopDate] IS NULL) OR ([StopDate] = @Original_StopDate)"& _ 
-                ") AND ((@IsNull_IntID = 1 AND [IntID] IS NULL) OR ([IntID] = @Original_IntID)) A"& _ 
-                "ND ((@IsNull_Rand = 1 AND [Rand] IS NULL) OR ([Rand] = @Original_Rand)) AND ((@I"& _ 
-                "sNull_FiringOrder = 1 AND [FiringOrder] IS NULL) OR ([FiringOrder] = @Original_F"& _ 
-                "iringOrder)) AND ((@IsNull_Selected = 1 AND [Selected] IS NULL) OR ([Selected] ="& _ 
-                " @Original_Selected)) AND ((@IsNull_Counted = 1 AND [Counted] IS NULL) OR ([Coun"& _ 
-                "ted] = @Original_Counted)) AND ((@IsNull_Strat = 1 AND [Strat] IS NULL) OR ([Str"& _ 
-                "at] = @Original_Strat)) AND ((@IsNull_StratMoose = 1 AND [StratMoose] IS NULL) O"& _ 
-                "R ([StratMoose] = @Original_StratMoose)) AND ((@IsNull_StratTracks = 1 AND [Stra"& _ 
-                "tTracks] IS NULL) OR ([StratTracks] = @Original_StratTracks)) AND ((@IsNull_Stra"& _ 
-                "tHab = 1 AND [StratHab] IS NULL) OR ([StratHab] = @Original_StratHab)) AND ((@Is"& _ 
-                "Null_SearchMin = 1 AND [SearchMin] IS NULL) OR ([SearchMin] = @Original_SearchMi"& _ 
-                "n)) AND ((@IsNull_DateCounted = 1 AND [DateCounted] IS NULL) OR ([DateCounted] ="& _ 
-                " @Original_DateCounted)) AND ((@IsNull_Perc_Not_Flown = 1 AND [Perc_Not_Flown] I"& _ 
-                "S NULL) OR ([Perc_Not_Flown] = @Original_Perc_Not_Flown)) AND ((@IsNull_X_COORD "& _ 
-                "= 1 AND [X_COORD] IS NULL) OR ([X_COORD] = @Original_X_COORD)) AND ((@IsNull_Y_C"& _ 
-                "OORD = 1 AND [Y_COORD] IS NULL) OR ([Y_COORD] = @Original_Y_COORD)) AND ((@IsNul"& _ 
-                "l_Area_SqMi = 1 AND [Area_SqMi] IS NULL) OR ([Area_SqMi] = @Original_Area_SqMi))"& _ 
-                " AND ((@IsNull_ADULT = 1 AND [ADULT] IS NULL) OR ([ADULT] = @Original_ADULT)) AN"& _ 
-                "D ((@IsNull_BULL_30_40 = 1 AND [BULL_30_40] IS NULL) OR ([BULL_30_40] = @Origina"& _ 
-                "l_BULL_30_40)) AND ((@IsNull_BULL_30_50 = 1 AND [BULL_30_50] IS NULL) OR ([BULL_"& _ 
-                "30_50] = @Original_BULL_30_50)) AND ((@IsNull_BULL_30_60 = 1 AND [BULL_30_60] IS"& _ 
-                " NULL) OR ([BULL_30_60] = @Original_BULL_30_60)) AND ((@IsNull_BULL_41_50 = 1 AN"& _ 
-                "D [BULL_41_50] IS NULL) OR ([BULL_41_50] = @Original_BULL_41_50)) AND ((@IsNull_"& _ 
-                "BULL_ALL = 1 AND [BULL_ALL] IS NULL) OR ([BULL_ALL] = @Original_BULL_ALL)) AND ("& _ 
-                "(@IsNull_BULL_GT_50 = 1 AND [BULL_GT_50] IS NULL) OR ([BULL_GT_50] = @Original_B"& _ 
-                "ULL_GT_50)) AND ((@IsNull_BULL_GT_60 = 1 AND [BULL_GT_60] IS NULL) OR ([BULL_GT_"& _ 
-                "60] = @Original_BULL_GT_60)) AND ((@IsNull_BULL_GTE_50 = 1 AND [BULL_GTE_50] IS "& _ 
-                "NULL) OR ([BULL_GTE_50] = @Original_BULL_GTE_50)) AND ((@IsNull_BULL_LT_30 = 1 A"& _ 
-                "ND [BULL_LT_30] IS NULL) OR ([BULL_LT_30] = @Original_BULL_LT_30)) AND ((@IsNull"& _ 
-                "_BULL_LT_50 = 1 AND [BULL_LT_50] IS NULL) OR ([BULL_LT_50] = @Original_BULL_LT_5"& _ 
-                "0)) AND ((@IsNull_CALF = 1 AND [CALF] IS NULL) OR ([CALF] = @Original_CALF)) AND"& _ 
-                " ((@IsNull_COW = 1 AND [COW] IS NULL) OR ([COW] = @Original_COW)) AND ((@IsNull_"& _ 
-                "COW_W_0 = 1 AND [COW_W_0] IS NULL) OR ([COW_W_0] = @Original_COW_W_0)) AND ((@Is"& _ 
-                "Null_COW_W_1 = 1 AND [COW_W_1] IS NULL) OR ([COW_W_1] = @Original_COW_W_1)) AND "& _ 
-                "((@IsNull_COW_W_2 = 1 AND [COW_W_2] IS NULL) OR ([COW_W_2] = @Original_COW_W_2))"& _ 
-                " AND ((@IsNull_COW_W_3 = 1 AND [COW_W_3] IS NULL) OR ([COW_W_3] = @Original_COW_"& _ 
-                "W_3)) AND ((@IsNull_LG_BULL = 1 AND [LG_BULL] IS NULL) OR ([LG_BULL] = @Original"& _ 
-                "_LG_BULL)) AND ((@IsNull_MED_BULL = 1 AND [MED_BULL] IS NULL) OR ([MED_BULL] = @"& _ 
-                "Original_MED_BULL)) AND ((@IsNull_MED_L_BULL = 1 AND [MED_L_BULL] IS NULL) OR (["& _ 
-                "MED_L_BULL] = @Original_MED_L_BULL)) AND ((@IsNull_SM_BULL = 1 AND [SM_BULL] IS "& _ 
-                "NULL) OR ([SM_BULL] = @Original_SM_BULL)) AND ((@IsNull_UNKNOWN = 1 AND [UNKNOWN"& _ 
-                "] IS NULL) OR ([UNKNOWN] = @Original_UNKNOWN)) AND ((@IsNull_YBULL_ALL = 1 AND ["& _ 
-                "YBULL_ALL] IS NULL) OR ([YBULL_ALL] = @Original_YBULL_ALL)) AND ((@IsNull_YBULL_"& _ 
-                "GTSF = 1 AND [YBULL_GTSF] IS NULL) OR ([YBULL_GTSF] = @Original_YBULL_GTSF)) AND"& _ 
-                " ((@IsNull_YBULL_SF = 1 AND [YBULL_SF] IS NULL) OR ([YBULL_SF] = @Original_YBULL"& _ 
-                "_SF)) AND ((@IsNull_MOOSE = 1 AND [MOOSE] IS NULL) OR ([MOOSE] = @Original_MOOSE"& _ 
-                ")) AND ((@IsNull_Comments = 1 AND [Comments] IS NULL) OR ([Comments] = @Original"& _ 
-                "_Comments)) AND ((@IsNull_SourceFilename = 1 AND [SourceFilename] IS NULL) OR (["& _ 
-                "SourceFilename] = @Original_SourceFilename)) AND ([RecordInsertedDate] = @Origin"& _ 
-                "al_RecordInsertedDate) AND ([RecordInsertedBy] = @Original_RecordInsertedBy) AND"& _ 
-                " ((@IsNull_CertificationDate = 1 AND [CertificationDate] IS NULL) OR ([Certifica"& _ 
-                "tionDate] = @Original_CertificationDate)) AND ((@IsNull_CertifiedBy = 1 AND [Cer"& _ 
-                "tifiedBy] IS NULL) OR ([CertifiedBy] = @Original_CertifiedBy)) AND ([Certificati"& _ 
-                "onLevel] = @Original_CertificationLevel) AND ((@IsNull_Exclude = 1 AND [Exclude]"& _ 
-                " IS NULL) OR ([Exclude] = @Original_Exclude)) AND ((@IsNull_GMU = 1 AND [GMU] IS"& _ 
-                " NULL) OR ([GMU] = @Original_GMU)) AND ((@IsNull_Pilot = 1 AND [Pilot] IS NULL) "& _ 
-                "OR ([Pilot] = @Original_Pilot)) AND ((@IsNull_StratName = 1 AND [StratName] IS N"& _ 
-                "ULL) OR ([StratName] = @Original_StratName)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Park, SurveyName, SurveyY"& _ 
-                "ear, Season, ID, StartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counte"& _ 
-                "d, Strat, StratMoose, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Fl"& _ 
-                "own, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BUL"& _ 
-                "L_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, "& _ 
-                "CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM"& _ 
-                "_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename"& _ 
-                ", RecordInsertedDate, RecordInsertedBy, CertificationDate, CertifiedBy, Certific"& _ 
-                "ationLevel, Exclude, GMU, Pilot, StratName FROM GSPE WHERE (ID = @ID) AND (Surve"& _ 
-                "yName = @SurveyName) AND (SurveyYear = @SurveyYear)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [GSPE] SET [Park] = @Park, [SurveyName] = @SurveyName, [SurveyYear] = @Sur"& _ 
+                "veyYear, [Season] = @Season, [ID] = @ID, [StartDate] = @StartDate, [StopDate] = "& _ 
+                "@StopDate, [IntID] = @IntID, [Rand] = @Rand, [FiringOrder] = @FiringOrder, [Sele"& _ 
+                "cted] = @Selected, [Counted] = @Counted, [Strat] = @Strat, [StratMoose] = @Strat"& _ 
+                "Moose, [StratTracks] = @StratTracks, [StratHab] = @StratHab, [SearchMin] = @Sear"& _ 
+                "chMin, [DateCounted] = @DateCounted, [Perc_Not_Flown] = @Perc_Not_Flown, [X_COOR"& _ 
+                "D] = @X_COORD, [Y_COORD] = @Y_COORD, [Area_SqMi] = @Area_SqMi, [ADULT] = @ADULT,"& _ 
+                " [BULL_30_40] = @BULL_30_40, [BULL_30_50] = @BULL_30_50, [BULL_30_60] = @BULL_30"& _ 
+                "_60, [BULL_41_50] = @BULL_41_50, [BULL_ALL] = @BULL_ALL, [BULL_GT_50] = @BULL_GT"& _ 
+                "_50, [BULL_GT_60] = @BULL_GT_60, [BULL_GTE_50] = @BULL_GTE_50, [BULL_LT_30] = @B"& _ 
+                "ULL_LT_30, [BULL_LT_50] = @BULL_LT_50, [CALF] = @CALF, [COW] = @COW, [COW_W_0] ="& _ 
+                " @COW_W_0, [COW_W_1] = @COW_W_1, [COW_W_2] = @COW_W_2, [COW_W_3] = @COW_W_3, [LG"& _ 
+                "_BULL] = @LG_BULL, [MED_BULL] = @MED_BULL, [MED_L_BULL] = @MED_L_BULL, [SM_BULL]"& _ 
+                " = @SM_BULL, [UNKNOWN] = @UNKNOWN, [YBULL_ALL] = @YBULL_ALL, [YBULL_GTSF] = @YBU"& _ 
+                "LL_GTSF, [YBULL_SF] = @YBULL_SF, [MOOSE] = @MOOSE, [Comments] = @Comments, [Sour"& _ 
+                "ceFilename] = @SourceFilename, [RecordInsertedDate] = @RecordInsertedDate, [Reco"& _ 
+                "rdInsertedBy] = @RecordInsertedBy, [CertificationDate] = @CertificationDate, [Ce"& _ 
+                "rtifiedBy] = @CertifiedBy, [CertificationLevel] = @CertificationLevel, [Exclude]"& _ 
+                " = @Exclude, [GMU] = @GMU, [Pilot] = @Pilot, [StratName] = @StratName, [SubArea]"& _ 
+                " = @SubArea WHERE (([Park] = @Original_Park) AND ([SurveyName] = @Original_Surve"& _ 
+                "yName) AND ([SurveyYear] = @Original_SurveyYear) AND ((@IsNull_Season = 1 AND [S"& _ 
+                "eason] IS NULL) OR ([Season] = @Original_Season)) AND ([ID] = @Original_ID) AND "& _ 
+                "((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_Sta"& _ 
+                "rtDate)) AND ((@IsNull_StopDate = 1 AND [StopDate] IS NULL) OR ([StopDate] = @Or"& _ 
+                "iginal_StopDate)) AND ((@IsNull_IntID = 1 AND [IntID] IS NULL) OR ([IntID] = @Or"& _ 
+                "iginal_IntID)) AND ((@IsNull_Rand = 1 AND [Rand] IS NULL) OR ([Rand] = @Original"& _ 
+                "_Rand)) AND ((@IsNull_FiringOrder = 1 AND [FiringOrder] IS NULL) OR ([FiringOrde"& _ 
+                "r] = @Original_FiringOrder)) AND ((@IsNull_Selected = 1 AND [Selected] IS NULL) "& _ 
+                "OR ([Selected] = @Original_Selected)) AND ((@IsNull_Counted = 1 AND [Counted] IS"& _ 
+                " NULL) OR ([Counted] = @Original_Counted)) AND ((@IsNull_Strat = 1 AND [Strat] I"& _ 
+                "S NULL) OR ([Strat] = @Original_Strat)) AND ((@IsNull_StratMoose = 1 AND [StratM"& _ 
+                "oose] IS NULL) OR ([StratMoose] = @Original_StratMoose)) AND ((@IsNull_StratTrac"& _ 
+                "ks = 1 AND [StratTracks] IS NULL) OR ([StratTracks] = @Original_StratTracks)) AN"& _ 
+                "D ((@IsNull_StratHab = 1 AND [StratHab] IS NULL) OR ([StratHab] = @Original_Stra"& _ 
+                "tHab)) AND ((@IsNull_SearchMin = 1 AND [SearchMin] IS NULL) OR ([SearchMin] = @O"& _ 
+                "riginal_SearchMin)) AND ((@IsNull_DateCounted = 1 AND [DateCounted] IS NULL) OR "& _ 
+                "([DateCounted] = @Original_DateCounted)) AND ((@IsNull_Perc_Not_Flown = 1 AND [P"& _ 
+                "erc_Not_Flown] IS NULL) OR ([Perc_Not_Flown] = @Original_Perc_Not_Flown)) AND (("& _ 
+                "@IsNull_X_COORD = 1 AND [X_COORD] IS NULL) OR ([X_COORD] = @Original_X_COORD)) A"& _ 
+                "ND ((@IsNull_Y_COORD = 1 AND [Y_COORD] IS NULL) OR ([Y_COORD] = @Original_Y_COOR"& _ 
+                "D)) AND ((@IsNull_Area_SqMi = 1 AND [Area_SqMi] IS NULL) OR ([Area_SqMi] = @Orig"& _ 
+                "inal_Area_SqMi)) AND ((@IsNull_ADULT = 1 AND [ADULT] IS NULL) OR ([ADULT] = @Ori"& _ 
+                "ginal_ADULT)) AND ((@IsNull_BULL_30_40 = 1 AND [BULL_30_40] IS NULL) OR ([BULL_3"& _ 
+                "0_40] = @Original_BULL_30_40)) AND ((@IsNull_BULL_30_50 = 1 AND [BULL_30_50] IS "& _ 
+                "NULL) OR ([BULL_30_50] = @Original_BULL_30_50)) AND ((@IsNull_BULL_30_60 = 1 AND"& _ 
+                " [BULL_30_60] IS NULL) OR ([BULL_30_60] = @Original_BULL_30_60)) AND ((@IsNull_B"& _ 
+                "ULL_41_50 = 1 AND [BULL_41_50] IS NULL) OR ([BULL_41_50] = @Original_BULL_41_50)"& _ 
+                ") AND ((@IsNull_BULL_ALL = 1 AND [BULL_ALL] IS NULL) OR ([BULL_ALL] = @Original_"& _ 
+                "BULL_ALL)) AND ((@IsNull_BULL_GT_50 = 1 AND [BULL_GT_50] IS NULL) OR ([BULL_GT_5"& _ 
+                "0] = @Original_BULL_GT_50)) AND ((@IsNull_BULL_GT_60 = 1 AND [BULL_GT_60] IS NUL"& _ 
+                "L) OR ([BULL_GT_60] = @Original_BULL_GT_60)) AND ((@IsNull_BULL_GTE_50 = 1 AND ["& _ 
+                "BULL_GTE_50] IS NULL) OR ([BULL_GTE_50] = @Original_BULL_GTE_50)) AND ((@IsNull_"& _ 
+                "BULL_LT_30 = 1 AND [BULL_LT_30] IS NULL) OR ([BULL_LT_30] = @Original_BULL_LT_30"& _ 
+                ")) AND ((@IsNull_BULL_LT_50 = 1 AND [BULL_LT_50] IS NULL) OR ([BULL_LT_50] = @Or"& _ 
+                "iginal_BULL_LT_50)) AND ((@IsNull_CALF = 1 AND [CALF] IS NULL) OR ([CALF] = @Ori"& _ 
+                "ginal_CALF)) AND ((@IsNull_COW = 1 AND [COW] IS NULL) OR ([COW] = @Original_COW)"& _ 
+                ") AND ((@IsNull_COW_W_0 = 1 AND [COW_W_0] IS NULL) OR ([COW_W_0] = @Original_COW"& _ 
+                "_W_0)) AND ((@IsNull_COW_W_1 = 1 AND [COW_W_1] IS NULL) OR ([COW_W_1] = @Origina"& _ 
+                "l_COW_W_1)) AND ((@IsNull_COW_W_2 = 1 AND [COW_W_2] IS NULL) OR ([COW_W_2] = @Or"& _ 
+                "iginal_COW_W_2)) AND ((@IsNull_COW_W_3 = 1 AND [COW_W_3] IS NULL) OR ([COW_W_3] "& _ 
+                "= @Original_COW_W_3)) AND ((@IsNull_LG_BULL = 1 AND [LG_BULL] IS NULL) OR ([LG_B"& _ 
+                "ULL] = @Original_LG_BULL)) AND ((@IsNull_MED_BULL = 1 AND [MED_BULL] IS NULL) OR"& _ 
+                " ([MED_BULL] = @Original_MED_BULL)) AND ((@IsNull_MED_L_BULL = 1 AND [MED_L_BULL"& _ 
+                "] IS NULL) OR ([MED_L_BULL] = @Original_MED_L_BULL)) AND ((@IsNull_SM_BULL = 1 A"& _ 
+                "ND [SM_BULL] IS NULL) OR ([SM_BULL] = @Original_SM_BULL)) AND ((@IsNull_UNKNOWN "& _ 
+                "= 1 AND [UNKNOWN] IS NULL) OR ([UNKNOWN] = @Original_UNKNOWN)) AND ((@IsNull_YBU"& _ 
+                "LL_ALL = 1 AND [YBULL_ALL] IS NULL) OR ([YBULL_ALL] = @Original_YBULL_ALL)) AND "& _ 
+                "((@IsNull_YBULL_GTSF = 1 AND [YBULL_GTSF] IS NULL) OR ([YBULL_GTSF] = @Original_"& _ 
+                "YBULL_GTSF)) AND ((@IsNull_YBULL_SF = 1 AND [YBULL_SF] IS NULL) OR ([YBULL_SF] ="& _ 
+                " @Original_YBULL_SF)) AND ((@IsNull_MOOSE = 1 AND [MOOSE] IS NULL) OR ([MOOSE] ="& _ 
+                " @Original_MOOSE)) AND ((@IsNull_Comments = 1 AND [Comments] IS NULL) OR ([Comme"& _ 
+                "nts] = @Original_Comments)) AND ((@IsNull_SourceFilename = 1 AND [SourceFilename"& _ 
+                "] IS NULL) OR ([SourceFilename] = @Original_SourceFilename)) AND ([RecordInserte"& _ 
+                "dDate] = @Original_RecordInsertedDate) AND ([RecordInsertedBy] = @Original_Recor"& _ 
+                "dInsertedBy) AND ((@IsNull_CertificationDate = 1 AND [CertificationDate] IS NULL"& _ 
+                ") OR ([CertificationDate] = @Original_CertificationDate)) AND ((@IsNull_Certifie"& _ 
+                "dBy = 1 AND [CertifiedBy] IS NULL) OR ([CertifiedBy] = @Original_CertifiedBy)) A"& _ 
+                "ND ([CertificationLevel] = @Original_CertificationLevel) AND ((@IsNull_Exclude ="& _ 
+                " 1 AND [Exclude] IS NULL) OR ([Exclude] = @Original_Exclude)) AND ((@IsNull_GMU "& _ 
+                "= 1 AND [GMU] IS NULL) OR ([GMU] = @Original_GMU)) AND ((@IsNull_Pilot = 1 AND ["& _ 
+                "Pilot] IS NULL) OR ([Pilot] = @Original_Pilot)) AND ((@IsNull_StratName = 1 AND "& _ 
+                "[StratName] IS NULL) OR ([StratName] = @Original_StratName)) AND ((@IsNull_SubAr"& _ 
+                "ea = 1 AND [SubArea] IS NULL) OR ([SubArea] = @Original_SubArea)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Park"& _ 
+                ", SurveyName, SurveyYear, Season, ID, StartDate, StopDate, IntID, Rand, FiringOr"& _ 
+                "der, Selected, Counted, Strat, StratMoose, StratTracks, StratHab, SearchMin, Dat"& _ 
+                "eCounted, Perc_Not_Flown, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_3"& _ 
+                "0_50, BULL_30_60, BULL_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BUL"& _ 
+                "L_LT_30, BULL_LT_50, CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED"& _ 
+                "_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Com"& _ 
+                "ments, SourceFilename, RecordInsertedDate, RecordInsertedBy, CertificationDate, "& _ 
+                "CertifiedBy, CertificationLevel, Exclude, GMU, Pilot, StratName, SubArea FROM GS"& _ 
+                "PE WHERE (ID = @ID) AND (SurveyName = @SurveyName) AND (SurveyYear = @SurveyYear"& _ 
+                ")"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Park", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Park", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SurveyName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SurveyName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4852,6 +4903,7 @@ Namespace MooseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GMU", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GMU", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pilot", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pilot", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StratName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StratName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SubArea", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SubArea", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Park", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Park", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SurveyName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SurveyName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SurveyYear", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SurveyYear", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -4963,6 +5015,8 @@ Namespace MooseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pilot", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pilot", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_StratName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StratName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_StratName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StratName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SubArea", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SubArea", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SubArea", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SubArea", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4978,15 +5032,16 @@ Namespace MooseDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Park, SurveyName, SurveyYear, Season, ID, StartDate, StopDate, IntID, Rand"& _ 
-                ", FiringOrder, Selected, Counted, Strat, StratMoose, StratTracks, StratHab, Sear"& _ 
-                "chMin, DateCounted, Perc_Not_Flown, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_"& _ 
-                "40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_G"& _ 
-                "TE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG"& _ 
-                "_BULL, MED_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, "& _ 
-                "MOOSE, Comments, SourceFilename, RecordInsertedDate, RecordInsertedBy, Certifica"& _ 
-                "tionDate, CertifiedBy, CertificationLevel, Exclude, GMU, Pilot, StratName FROM d"& _ 
-                "bo.GSPE"
+            Me._commandCollection(0).CommandText = "SELECT        Park, SurveyName, SurveyYear, Season, ID, StartDate, StopDate, IntI"& _ 
+                "D, Rand, FiringOrder, Selected, Counted, Strat, StratMoose, StratTracks, StratHa"& _ 
+                "b, SearchMin, DateCounted, Perc_Not_Flown, X_COORD, Y_COORD, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "        Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_A"& _ 
+                "LL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_"& _ 
+                "W_0, COW_W_1, COW_W_2, COW_W_3, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LG_BULL, MED_BULL, ME"& _ 
+                "D_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, So"& _ 
+                "urceFilename, RecordInsertedDate, RecordInsertedBy, CertificationDate, Certified"& _ 
+                "By, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CertificationLevel, Exclude, GMU, Pilot, StratNam"& _ 
+                "e, SubArea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            GSPE"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5105,7 +5160,8 @@ Namespace MooseDataSetTableAdapters
                     ByVal Original_Exclude As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_GMU As String,  _
                     ByVal Original_Pilot As String,  _
-                    ByVal Original_StratName As String) As Integer
+                    ByVal Original_StratName As String,  _
+                    ByVal Original_SubArea As String) As Integer
             If (Original_Park Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Park")
             Else
@@ -5497,6 +5553,13 @@ Namespace MooseDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(109).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(110).Value = CType(Original_StratName,String)
             End If
+            If (Original_SubArea Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(112).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(111).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(112).Value = CType(Original_SubArea,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5575,7 +5638,8 @@ Namespace MooseDataSetTableAdapters
                     ByVal Exclude As Global.System.Nullable(Of Boolean),  _
                     ByVal GMU As String,  _
                     ByVal Pilot As String,  _
-                    ByVal StratName As String) As Integer
+                    ByVal StratName As String,  _
+                    ByVal SubArea As String) As Integer
             If (Park Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Park")
             Else
@@ -5863,6 +5927,11 @@ Namespace MooseDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(58).Value = CType(StratName,String)
             End If
+            If (SubArea Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(59).Value = CType(SubArea,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5942,6 +6011,7 @@ Namespace MooseDataSetTableAdapters
                     ByVal GMU As String,  _
                     ByVal Pilot As String,  _
                     ByVal StratName As String,  _
+                    ByVal SubArea As String,  _
                     ByVal Original_Park As String,  _
                     ByVal Original_SurveyName As String,  _
                     ByVal Original_SurveyYear As Integer,  _
@@ -6000,7 +6070,8 @@ Namespace MooseDataSetTableAdapters
                     ByVal Original_Exclude As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_GMU As String,  _
                     ByVal Original_Pilot As String,  _
-                    ByVal Original_StratName As String) As Integer
+                    ByVal Original_StratName As String,  _
+                    ByVal Original_SubArea As String) As Integer
             If (Park Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Park")
             Else
@@ -6288,396 +6359,408 @@ Namespace MooseDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(58).Value = CType(StratName,String)
             End If
+            If (SubArea Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(SubArea,String)
+            End If
             If (Original_Park Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Park")
             Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_Park,String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_Park,String)
             End If
             If (Original_SurveyName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_SurveyName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_SurveyName,String)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_SurveyName,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_SurveyYear,Integer)
+            Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_SurveyYear,Integer)
             If (Original_Season Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_Season,String)
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_Season,String)
             End If
             If (Original_ID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_ID,String)
+                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_ID,String)
             End If
             If (Original_StartDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_StartDate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_StartDate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(67).Value = Global.System.DBNull.Value
             End If
             If (Original_StopDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_StopDate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(Original_StopDate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(69).Value = Global.System.DBNull.Value
             End If
             If (Original_IntID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_IntID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(Original_IntID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(71).Value = Global.System.DBNull.Value
             End If
             If (Original_Rand.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_Rand.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(Original_Rand.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(73).Value = Global.System.DBNull.Value
             End If
             If (Original_FiringOrder.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_FiringOrder.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(Original_FiringOrder.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(75).Value = Global.System.DBNull.Value
             End If
             If (Original_Selected.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_Selected.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(Original_Selected.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(77).Value = Global.System.DBNull.Value
             End If
             If (Original_Counted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_Counted.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(Original_Counted.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(79).Value = Global.System.DBNull.Value
             End If
             If (Original_Strat Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_Strat,String)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(Original_Strat,String)
             End If
             If (Original_StratMoose.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_StratMoose.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(Original_StratMoose.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(83).Value = Global.System.DBNull.Value
             End If
             If (Original_StratTracks.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_StratTracks.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(Original_StratTracks.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(85).Value = Global.System.DBNull.Value
             End If
             If (Original_StratHab Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_StratHab,String)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(Original_StratHab,String)
             End If
             If (Original_SearchMin.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_SearchMin.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(Original_SearchMin.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(89).Value = Global.System.DBNull.Value
             End If
             If (Original_DateCounted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_DateCounted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(Original_DateCounted.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(91).Value = Global.System.DBNull.Value
             End If
             If (Original_Perc_Not_Flown.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_Perc_Not_Flown.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(Original_Perc_Not_Flown.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(93).Value = Global.System.DBNull.Value
             End If
             If (Original_X_COORD.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_X_COORD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(Original_X_COORD.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(95).Value = Global.System.DBNull.Value
             End If
             If (Original_Y_COORD.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_Y_COORD.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(Original_Y_COORD.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(97).Value = Global.System.DBNull.Value
             End If
             If (Original_Area_SqMi.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_Area_SqMi.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(Original_Area_SqMi.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(99).Value = Global.System.DBNull.Value
             End If
             If (Original_ADULT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_ADULT.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(Original_ADULT.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(101).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_30_40.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_BULL_30_40.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(Original_BULL_30_40.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(103).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_30_50.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_BULL_30_50.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(Original_BULL_30_50.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(105).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_30_60.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_BULL_30_60.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(Original_BULL_30_60.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(107).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_41_50.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_BULL_41_50.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(Original_BULL_41_50.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(109).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_ALL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_BULL_ALL.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(Original_BULL_ALL.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(111).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_GT_50.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_BULL_GT_50.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(Original_BULL_GT_50.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(113).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_GT_60.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_BULL_GT_60.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(Original_BULL_GT_60.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(115).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_GTE_50.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_BULL_GTE_50.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(Original_BULL_GTE_50.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(117).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_LT_30.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_BULL_LT_30.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(Original_BULL_LT_30.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(119).Value = Global.System.DBNull.Value
             End If
             If (Original_BULL_LT_50.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_BULL_LT_50.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(Original_BULL_LT_50.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(121).Value = Global.System.DBNull.Value
             End If
             If (Original_CALF.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_CALF.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(Original_CALF.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(123).Value = Global.System.DBNull.Value
             End If
             If (Original_COW.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_COW.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(Original_COW.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(125).Value = Global.System.DBNull.Value
             End If
             If (Original_COW_W_0.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_COW_W_0.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(Original_COW_W_0.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(127).Value = Global.System.DBNull.Value
             End If
             If (Original_COW_W_1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_COW_W_1.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(Original_COW_W_1.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(129).Value = Global.System.DBNull.Value
             End If
             If (Original_COW_W_2.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_COW_W_2.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(Original_COW_W_2.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(131).Value = Global.System.DBNull.Value
             End If
             If (Original_COW_W_3.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_COW_W_3.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(Original_COW_W_3.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(133).Value = Global.System.DBNull.Value
             End If
             If (Original_LG_BULL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_LG_BULL.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(Original_LG_BULL.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(135).Value = Global.System.DBNull.Value
             End If
             If (Original_MED_BULL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_MED_BULL.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(Original_MED_BULL.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(137).Value = Global.System.DBNull.Value
             End If
             If (Original_MED_L_BULL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_MED_L_BULL.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(Original_MED_L_BULL.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(139).Value = Global.System.DBNull.Value
             End If
             If (Original_SM_BULL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_SM_BULL.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(Original_SM_BULL.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(141).Value = Global.System.DBNull.Value
             End If
             If (Original_UNKNOWN.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_UNKNOWN.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(Original_UNKNOWN.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(143).Value = Global.System.DBNull.Value
             End If
             If (Original_YBULL_ALL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_YBULL_ALL.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(Original_YBULL_ALL.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(145).Value = Global.System.DBNull.Value
             End If
             If (Original_YBULL_GTSF.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_YBULL_GTSF.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(Original_YBULL_GTSF.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(147).Value = Global.System.DBNull.Value
             End If
             If (Original_YBULL_SF.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_YBULL_SF.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(Original_YBULL_SF.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(149).Value = Global.System.DBNull.Value
             End If
             If (Original_MOOSE.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_MOOSE.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(Original_MOOSE.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(151).Value = Global.System.DBNull.Value
             End If
             If (Original_Comments Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(153).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_Comments,String)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(Original_Comments,String)
             End If
             If (Original_SourceFilename Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(155).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_SourceFilename,String)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_SourceFilename,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(155).Value = CType(Original_RecordInsertedDate,Date)
+            Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_RecordInsertedDate,Date)
             If (Original_RecordInsertedBy Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_RecordInsertedBy")
             Else
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_RecordInsertedBy,String)
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(Original_RecordInsertedBy,String)
             End If
             If (Original_CertificationDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_CertificationDate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(Original_CertificationDate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(159).Value = Global.System.DBNull.Value
             End If
             If (Original_CertifiedBy Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(161).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_CertifiedBy,String)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_CertifiedBy,String)
             End If
             If (Original_CertificationLevel Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_CertificationLevel")
             Else
-                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(Original_CertificationLevel,String)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_CertificationLevel,String)
             End If
             If (Original_Exclude.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(Original_Exclude.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_Exclude.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(163).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
             End If
             If (Original_GMU Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(Original_GMU,String)
+                Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_GMU,String)
             End If
             If (Original_Pilot Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(167).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(166).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(Original_Pilot,String)
+                Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_Pilot,String)
             End If
             If (Original_StratName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(169).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(168).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(Original_StratName,String)
+                Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_StratName,String)
+            End If
+            If (Original_SubArea Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(171).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(172).Value = CType(Original_SubArea,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6755,6 +6838,7 @@ Namespace MooseDataSetTableAdapters
                     ByVal GMU As String,  _
                     ByVal Pilot As String,  _
                     ByVal StratName As String,  _
+                    ByVal SubArea As String,  _
                     ByVal Original_Park As String,  _
                     ByVal Original_SurveyName As String,  _
                     ByVal Original_SurveyYear As Integer,  _
@@ -6813,8 +6897,9 @@ Namespace MooseDataSetTableAdapters
                     ByVal Original_Exclude As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_GMU As String,  _
                     ByVal Original_Pilot As String,  _
-                    ByVal Original_StratName As String) As Integer
-            Return Me.Update(Park, Original_SurveyName, Original_SurveyYear, Season, Original_ID, StartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counted, Strat, StratMoose, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Flown, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename, RecordInsertedDate, RecordInsertedBy, CertificationDate, CertifiedBy, CertificationLevel, Exclude, GMU, Pilot, StratName, Original_Park, Original_SurveyName, Original_SurveyYear, Original_Season, Original_ID, Original_StartDate, Original_StopDate, Original_IntID, Original_Rand, Original_FiringOrder, Original_Selected, Original_Counted, Original_Strat, Original_StratMoose, Original_StratTracks, Original_StratHab, Original_SearchMin, Original_DateCounted, Original_Perc_Not_Flown, Original_X_COORD, Original_Y_COORD, Original_Area_SqMi, Original_ADULT, Original_BULL_30_40, Original_BULL_30_50, Original_BULL_30_60, Original_BULL_41_50, Original_BULL_ALL, Original_BULL_GT_50, Original_BULL_GT_60, Original_BULL_GTE_50, Original_BULL_LT_30, Original_BULL_LT_50, Original_CALF, Original_COW, Original_COW_W_0, Original_COW_W_1, Original_COW_W_2, Original_COW_W_3, Original_LG_BULL, Original_MED_BULL, Original_MED_L_BULL, Original_SM_BULL, Original_UNKNOWN, Original_YBULL_ALL, Original_YBULL_GTSF, Original_YBULL_SF, Original_MOOSE, Original_Comments, Original_SourceFilename, Original_RecordInsertedDate, Original_RecordInsertedBy, Original_CertificationDate, Original_CertifiedBy, Original_CertificationLevel, Original_Exclude, Original_GMU, Original_Pilot, Original_StratName)
+                    ByVal Original_StratName As String,  _
+                    ByVal Original_SubArea As String) As Integer
+            Return Me.Update(Park, Original_SurveyName, Original_SurveyYear, Season, Original_ID, StartDate, StopDate, IntID, Rand, FiringOrder, Selected, Counted, Strat, StratMoose, StratTracks, StratHab, SearchMin, DateCounted, Perc_Not_Flown, X_COORD, Y_COORD, Area_SqMi, ADULT, BULL_30_40, BULL_30_50, BULL_30_60, BULL_41_50, BULL_ALL, BULL_GT_50, BULL_GT_60, BULL_GTE_50, BULL_LT_30, BULL_LT_50, CALF, COW, COW_W_0, COW_W_1, COW_W_2, COW_W_3, LG_BULL, MED_BULL, MED_L_BULL, SM_BULL, UNKNOWN, YBULL_ALL, YBULL_GTSF, YBULL_SF, MOOSE, Comments, SourceFilename, RecordInsertedDate, RecordInsertedBy, CertificationDate, CertifiedBy, CertificationLevel, Exclude, GMU, Pilot, StratName, SubArea, Original_Park, Original_SurveyName, Original_SurveyYear, Original_Season, Original_ID, Original_StartDate, Original_StopDate, Original_IntID, Original_Rand, Original_FiringOrder, Original_Selected, Original_Counted, Original_Strat, Original_StratMoose, Original_StratTracks, Original_StratHab, Original_SearchMin, Original_DateCounted, Original_Perc_Not_Flown, Original_X_COORD, Original_Y_COORD, Original_Area_SqMi, Original_ADULT, Original_BULL_30_40, Original_BULL_30_50, Original_BULL_30_60, Original_BULL_41_50, Original_BULL_ALL, Original_BULL_GT_50, Original_BULL_GT_60, Original_BULL_GTE_50, Original_BULL_LT_30, Original_BULL_LT_50, Original_CALF, Original_COW, Original_COW_W_0, Original_COW_W_1, Original_COW_W_2, Original_COW_W_3, Original_LG_BULL, Original_MED_BULL, Original_MED_L_BULL, Original_SM_BULL, Original_UNKNOWN, Original_YBULL_ALL, Original_YBULL_GTSF, Original_YBULL_SF, Original_MOOSE, Original_Comments, Original_SourceFilename, Original_RecordInsertedDate, Original_RecordInsertedBy, Original_CertificationDate, Original_CertifiedBy, Original_CertificationLevel, Original_Exclude, Original_GMU, Original_Pilot, Original_StratName, Original_SubArea)
         End Function
     End Class
     

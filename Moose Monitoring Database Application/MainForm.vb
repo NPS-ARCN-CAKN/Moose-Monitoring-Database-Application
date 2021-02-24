@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class Form1
+Public Class MainForm
 
     Dim CurrentSurveyName As String = ""
     Private Sub AskToSaveDataset()
@@ -31,25 +31,21 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub LoadSelectAQueryComboBox()
+    Private Sub LoadQuerySelectorComboBoxes()
         Try
-            Me.SelectAQueryToolStripComboBox.Items.Clear()
-            Me.SelectAQueryToolStripComboBox.Items.Add("")
-
-            'Get a list of tables and queries to load into the queries selector combo box
-            Dim QueriesDataTable As DataTable = GetDataTable(My.Settings.MooseConnectionString, "SELECT [Table],TableDescription,SelectQuery from DatabaseTableDescriptions ORDER BY [Table]")
-            For Each QueryRow As DataRow In QueriesDataTable.Rows
-                Me.SelectAQueryToolStripComboBox.Items.Add(QueryRow.Item("Table"))
-            Next
+            LoadQuerySelectorComboBox(Me.SelectAQueryToolStripComboBox)
+            LoadQuerySelectorComboBox(Me.SelectAResultsPivotDatasourceToolStripComboBox)
         Catch ex As Exception
             MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub
 
+
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataset()
 
-        LoadSelectAQueryComboBox()
+        LoadQuerySelectorComboBoxes()
     End Sub
 
     Private Sub SaveToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveToolStripButton.Click
@@ -62,6 +58,7 @@ Public Class Form1
 
     Private Sub GSPE_SurveysBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles GSPE_SurveysBindingSource.CurrentChanged
         Try
+
             'load the summary data grid
             'Me.ResultsDataGridView.DataSource = Nothing
             Dim DR As DataRowView = GSPE_SurveysBindingSource.Current
@@ -74,8 +71,15 @@ Public Class Form1
 
                     'load the survey name into the header
                     Me.HeaderLabel.Text = CurrentSurveyName
+                    Dim MetadataDT As DataTable = GetDataTable(My.Settings.MooseConnectionString, "SELECT N as RecordCount, [Proportion of records certified] as PctCertified,Report,DeliverableDataset FROM Summary_TotalCountsBySurvey WHERE SurveyName = '" & CurrentSurveyName & "'")
+                    If MetadataDT.Rows.Count = 1 Then
+                        Me.HeaderLabel.Text = HeaderLabel.Text & " (" & MetadataDT.Rows(0).Item("PctCertified") * 100 & "% certified, " & MetadataDT.Rows(0).Item("RecordCount") & " records)"
+                    End If
 
+
+                    'Load the grids with data
                     LoadResultsGrid()
+                    LoadResultsPivotGrid()
                 Else
                 End If
             End If
@@ -83,46 +87,14 @@ Public Class Form1
         Catch ex As Exception
             MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
+
+
+        'Build up a moose survey object
+
     End Sub
 
 
-    ''' <summary>
-    ''' Runs the query in Sql against a database using ConnectionString and returns the results as a DataTable
-    ''' </summary>
-    ''' <param name="ConnectionString"></param>
-    ''' <param name="Sql"></param>
-    ''' <returns>DataTable</returns>
-    Public Function GetDataTable(ConnectionString As String, Sql As String) As DataTable
 
-        'the DataTable to return
-        Dim MyDataTable As New DataTable
-        Try
-            'make a SqlConnection using the supplied ConnectionString 
-            Dim MySqlConnection As New SqlConnection(ConnectionString)
-            Using MySqlConnection
-                'make a query using the supplied Sql
-                Dim MySqlCommand As SqlCommand = New SqlCommand(Sql, MySqlConnection)
-
-                'open the connection
-                MySqlConnection.Open()
-
-                'create a DataReader and execute the SqlCommand
-                Dim MyDataReader As SqlDataReader = MySqlCommand.ExecuteReader()
-
-                'load the reader into the datatable
-                MyDataTable.Load(MyDataReader)
-
-                'clean up
-                MyDataReader.Close()
-                MySqlConnection.Close()
-            End Using
-        Catch ex As Exception
-            MsgBox("Error: Query on " & ConnectionString & " failed. " & ex.Message & " (" & System.Reflection.MethodBase.GetCurrentMethod.Name & ")")
-        End Try
-
-        'return the datatable
-        Return MyDataTable
-    End Function
 
     Private Sub OpenResourcesToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenResourcesToolStripButton.Click
         Try
@@ -183,6 +155,9 @@ Public Class Form1
     Private Sub LoadQueryResultsToolStripButton_Click(sender As Object, e As EventArgs) Handles LoadQueryResultsToolStripButton.Click
         LoadResultsGrid()
     End Sub
+    Private Sub SelectAResultsPivotDatasourceToolStripButton_Click(sender As Object, e As EventArgs) Handles SelectAResultsPivotDatasourceToolStripButton.Click
+        LoadResultsPivotGrid()
+    End Sub
 
     Private Sub LoadResultsGrid()
         Try
@@ -190,27 +165,75 @@ Public Class Form1
                 Dim TableName As String = Me.SelectAQueryToolStripComboBox.Text.Trim
                 Dim WhereClause As String = " WHERE SurveyName='" & CurrentSurveyName & "'"
                 Dim Sql As String = "SELECT * FROM " & TableName & WhereClause
-                Debug.Print(Sql)
                 Dim DT As DataTable = GetDataTable(My.Settings.MooseConnectionString, Sql)
 
                 'Load the results grid
                 With Me.ResultsGridControl
                     .DataSource = DT
-                    .RefreshDataSource()
-                    .DefaultView.ViewCaption = Sql
-                End With
-
-                'load the results pivot grid
-                With Me.ResultsPivotGridControl
-                    .DataSource = DT
-                    '.RefreshData()
-                    .RetrieveFields()
+                    .MainView.PopulateColumns()
                     .Text = Sql
                 End With
+
             End If
 
         Catch ex As Exception
             MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
+    End Sub
+
+    Private Sub LoadResultsPivotGrid()
+        Try
+            'see if we have a data source
+            If Me.SelectAResultsPivotDatasourceToolStripComboBox.Text.Trim.Length > 0 Then
+
+                'load a data table into the pivot grid
+                Dim TableName As String = Me.SelectAResultsPivotDatasourceToolStripComboBox.Text.Trim
+                Dim WhereClause As String = " WHERE SurveyName='" & CurrentSurveyName & "'"
+                Dim Sql As String = "SELECT * FROM " & TableName & WhereClause
+                Dim DT As DataTable = GetDataTable(My.Settings.MooseConnectionString, Sql)
+
+                'load the results pivot grid
+                With Me.ResultsPivotGridControl
+                    .DataSource = DT
+                    .RetrieveFields()
+                    .Text = Sql
+                End With
+            Else
+                'no survey selected, clear the grid
+                Me.ResultsPivotGridControl.DataSource = Nothing
+                Me.ResultsPivotGridControl.RetrieveFields()
+            End If
+
+        Catch ex As Exception
+            'no survey selected, clear the grid
+            Me.ResultsPivotGridControl.DataSource = Nothing
+            Me.ResultsPivotGridControl.RetrieveFields()
+            MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+
+
+    Private Sub ExportSurveySummaryToExcelToolStripButton_Click(sender As Object, e As EventArgs) Handles ExportSurveySummaryToExcelToolStripButton.Click
+        Me.ResultsPivotGridControl.ExportToXlsx("C:\temp\zTemp.xlsx")
+    End Sub
+
+    Private Sub GSPEDatasetSummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GSPEDatasetSummaryToolStripMenuItem.Click
+        Dim GSPE_PivotForm As New GSPE_PivotForm
+        GSPE_PivotForm.Show()
+    End Sub
+
+    Private Sub SurveyResultsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SurveyResultsToolStripMenuItem.Click
+        Dim PopulationEstimateAnalyticsForm As New PopulationEstimateAnalyticsForm
+        PopulationEstimateAnalyticsForm.Show()
+    End Sub
+
+    Private Sub QueryExplorerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QueryExplorerToolStripMenuItem.Click
+        Dim QueryExplorerForm As New QueryExplorerForm
+        QueryExplorerForm.Show()
+    End Sub
+
+    Private Sub ExportGridToExcelToolStripButton_Click(sender As Object, e As EventArgs) Handles ExportGridToExcelToolStripButton.Click
+        SaveResultsToExcel(Me.ResultsGridControl)
     End Sub
 End Class

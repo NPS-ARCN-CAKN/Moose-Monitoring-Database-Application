@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,14 +23,14 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim GridFormatRule4 As DevExpress.XtraGrid.GridFormatRule = New DevExpress.XtraGrid.GridFormatRule()
-        Dim FormatConditionRuleValue4 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
-        Dim GridFormatRule5 As DevExpress.XtraGrid.GridFormatRule = New DevExpress.XtraGrid.GridFormatRule()
-        Dim FormatConditionRuleValue5 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
-        Dim GridFormatRule6 As DevExpress.XtraGrid.GridFormatRule = New DevExpress.XtraGrid.GridFormatRule()
-        Dim FormatConditionRuleValue6 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
+        Dim GridFormatRule1 As DevExpress.XtraGrid.GridFormatRule = New DevExpress.XtraGrid.GridFormatRule()
+        Dim FormatConditionRuleValue1 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
+        Dim GridFormatRule2 As DevExpress.XtraGrid.GridFormatRule = New DevExpress.XtraGrid.GridFormatRule()
+        Dim FormatConditionRuleValue2 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
+        Dim GridFormatRule3 As DevExpress.XtraGrid.GridFormatRule = New DevExpress.XtraGrid.GridFormatRule()
+        Dim FormatConditionRuleValue3 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Dim XyDiagram1 As DevExpress.XtraCharts.XYDiagram = New DevExpress.XtraCharts.XYDiagram()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim ScaleLabel1 As DevExpress.XtraGauges.Core.Model.ScaleLabel = New DevExpress.XtraGauges.Core.Model.ScaleLabel()
         Dim ArcScaleRange1 As DevExpress.XtraGauges.Core.Model.ArcScaleRange = New DevExpress.XtraGauges.Core.Model.ArcScaleRange()
         Dim ArcScaleRange2 As DevExpress.XtraGauges.Core.Model.ArcScaleRange = New DevExpress.XtraGauges.Core.Model.ArcScaleRange()
@@ -45,58 +45,6 @@ Partial Class Form1
         Me.GSPETableAdapter = New Moose_Monitoring_Database_Application.MooseDataSetTableAdapters.GSPETableAdapter()
         Me.GSPEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitContainerMain = New System.Windows.Forms.SplitContainer()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.colSurveyName = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colYear = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colPark = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colParkSubArea = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colStartDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemDateEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
-        Me.colEndDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemDateEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
-        Me.colPopulationEstimate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colConfidenceInterval = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colPopulationEstimateUpperCI = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colPopulationEstimateLowerCI = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colEstimatedDensity_SqMi = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAreaSurveyed_mi = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAverageSearchEffort = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colPersonnel = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colProtocolVersion = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colSurveyDatasetTitle = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colAbstract = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemMemoExEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
-        Me.colSummary = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
-        Me.colDatasetProcessingSteps = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemMemoExEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
-        Me.colComments = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colRecordInsertedDate = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.colRecordInsertedBy = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemMemoEdit6 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit()
-        Me.RepositoryItemMemoEdit7 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenResourcesToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.CertifySurveyToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RefreshDatasetToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ResultsXtraTabControl = New DevExpress.XtraTab.XtraTabControl()
-        Me.ResultsXtraTabPage = New DevExpress.XtraTab.XtraTabPage()
-        Me.ResultsGridControl = New DevExpress.XtraGrid.GridControl()
-        Me.ResultsView = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.ResultsPivotXtraTabPage = New DevExpress.XtraTab.XtraTabPage()
-        Me.ResultsPivotSplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.ResultsPivotGridControl = New DevExpress.XtraPivotGrid.PivotGridControl()
-        Me.ResultsPivotChartControl = New DevExpress.XtraCharts.ChartControl()
-        Me.ResultsToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
-        Me.SelectAQueryToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
-        Me.LoadQueryResultsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.VGridControl1 = New DevExpress.XtraVerticalGrid.VGridControl()
         Me.RepositoryItemMemoEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit()
         Me.RepositoryItemMemoEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit()
@@ -128,6 +76,70 @@ Partial Class Form1
         Me.rowRecordInsertedDate = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowRecordInsertedBy = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowProtocolVersion = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.colSurveyName = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colYear = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPark = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colParkSubArea = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colStartDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemDateEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
+        Me.colEndDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemDateEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
+        Me.colPopulationEstimate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colConfidenceInterval = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPopulationEstimateUpperCI = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPopulationEstimateLowerCI = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colEstimatedDensity_SqMi = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAreaSurveyed_mi = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAverageSearchEffort = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colPersonnel = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colProtocolVersion = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colSurveyDatasetTitle = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colAbstract = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.colSummary = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.colDatasetProcessingSteps = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.colComments = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.colRecordInsertedDate = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemDateEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
+        Me.colRecordInsertedBy = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoEdit6 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit()
+        Me.RepositoryItemMemoEdit7 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit()
+        Me.ResultsXtraTabControl = New DevExpress.XtraTab.XtraTabControl()
+        Me.ResultsXtraTabPage = New DevExpress.XtraTab.XtraTabPage()
+        Me.ResultsGridControl = New DevExpress.XtraGrid.GridControl()
+        Me.ResultsView = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.ResultsToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.SelectAQueryToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.LoadQueryResultsToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ResultsPivotXtraTabPage = New DevExpress.XtraTab.XtraTabPage()
+        Me.ResultsPivotSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.ResultsPivotGridControl = New DevExpress.XtraPivotGrid.PivotGridControl()
+        Me.ResultsPivotChartControl = New DevExpress.XtraCharts.ChartControl()
+        Me.ResultsPivotToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.SelectAResultsPivotDatasourceToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.SelectAResultsPivotDatasourceToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExportSurveySummaryToExcelToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenResourcesToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CertifySurveyToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshDatasetToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AnalyticsToolStripDropDownButton = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.SurveyResultsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GSPEDatasetSummaryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QueryExplorerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HeaderPanel = New System.Windows.Forms.Panel()
         Me.HeaderLabel = New System.Windows.Forms.Label()
         Me.ArcScaleNeedleComponent1 = New DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleNeedleComponent()
@@ -137,6 +149,8 @@ Partial Class Form1
         Me.ArcScaleRangeBarComponent1 = New DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleRangeBarComponent()
         Me.ExcelDataSource1 = New DevExpress.DataAccess.Excel.ExcelDataSource()
         Me.GSPESurveysBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExportGridToExcelToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.MooseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GSPE_SurveysBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GSPEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,6 +158,12 @@ Partial Class Form1
         Me.SplitContainerMain.Panel1.SuspendLayout()
         Me.SplitContainerMain.Panel2.SuspendLayout()
         Me.SplitContainerMain.SuspendLayout()
+        CType(Me.VGridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
@@ -157,14 +177,16 @@ Partial Class Form1
         CType(Me.RepositoryItemMemoExEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoExEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemDateEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemDateEdit3.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit7, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip1.SuspendLayout()
         CType(Me.ResultsXtraTabControl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ResultsXtraTabControl.SuspendLayout()
         Me.ResultsXtraTabPage.SuspendLayout()
         CType(Me.ResultsGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResultsView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ResultsToolStrip.SuspendLayout()
         Me.ResultsPivotXtraTabPage.SuspendLayout()
         CType(Me.ResultsPivotSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ResultsPivotSplitContainer.Panel1.SuspendLayout()
@@ -173,13 +195,8 @@ Partial Class Form1
         CType(Me.ResultsPivotGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResultsPivotChartControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(XyDiagram1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ResultsToolStrip.SuspendLayout()
-        CType(Me.VGridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemMemoEdit5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ResultsPivotToolStrip.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.HeaderPanel.SuspendLayout()
         CType(Me.ArcScaleNeedleComponent1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ArcScaleComponent1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -246,19 +263,222 @@ Partial Class Form1
         'SplitContainerMain
         '
         Me.SplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerMain.Location = New System.Drawing.Point(0, 56)
+        Me.SplitContainerMain.Location = New System.Drawing.Point(0, 70)
         Me.SplitContainerMain.Name = "SplitContainerMain"
         '
         'SplitContainerMain.Panel1
         '
-        Me.SplitContainerMain.Panel1.Controls.Add(Me.SplitContainer2)
+        Me.SplitContainerMain.Panel1.Controls.Add(Me.VGridControl1)
         '
         'SplitContainerMain.Panel2
         '
-        Me.SplitContainerMain.Panel2.Controls.Add(Me.VGridControl1)
-        Me.SplitContainerMain.Size = New System.Drawing.Size(755, 460)
-        Me.SplitContainerMain.SplitterDistance = 592
+        Me.SplitContainerMain.Panel2.Controls.Add(Me.SplitContainer2)
+        Me.SplitContainerMain.Size = New System.Drawing.Size(1677, 1138)
+        Me.SplitContainerMain.SplitterDistance = 447
         Me.SplitContainerMain.TabIndex = 0
+        '
+        'VGridControl1
+        '
+        Me.VGridControl1.Appearance.RecordValue.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.VGridControl1.Appearance.RecordValue.Options.UseFont = True
+        Me.VGridControl1.Appearance.RowHeaderPanel.Font = New System.Drawing.Font("Tahoma", 11.0!)
+        Me.VGridControl1.Appearance.RowHeaderPanel.Options.UseFont = True
+        Me.VGridControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.VGridControl1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.VGridControl1.DataSource = Me.GSPE_SurveysBindingSource
+        Me.VGridControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VGridControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView
+        Me.VGridControl1.Location = New System.Drawing.Point(0, 0)
+        Me.VGridControl1.Name = "VGridControl1"
+        Me.VGridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoEdit1, Me.RepositoryItemMemoEdit2, Me.RepositoryItemMemoEdit3, Me.RepositoryItemMemoEdit4, Me.RepositoryItemMemoEdit5})
+        Me.VGridControl1.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowSurveyName, Me.rowYear, Me.rowPark, Me.rowParkSubArea, Me.rowStartDate, Me.rowEndDate, Me.rowPopulationEstimate, Me.rowConfidenceInterval, Me.rowPopulationEstimateUpperCI, Me.rowPopulationEstimateLowerCI, Me.rowEstimatedDensity_SqMi, Me.rowAreaSurveyed_mi, Me.rowAverageSearchEffort, Me.rowPersonnel, Me.rowReportReferenceCode, Me.rowDeliverablesDatasetReferenceCode, Me.rowProtocolReferenceCode, Me.rowSurveyDatasetTitle, Me.rowAbstract, Me.rowSummary, Me.rowDatasetProcessingSteps, Me.rowRecordInsertedDate, Me.rowRecordInsertedBy, Me.rowProtocolVersion})
+        Me.VGridControl1.Size = New System.Drawing.Size(447, 1138)
+        Me.VGridControl1.TabIndex = 0
+        '
+        'RepositoryItemMemoEdit1
+        '
+        Me.RepositoryItemMemoEdit1.Name = "RepositoryItemMemoEdit1"
+        '
+        'RepositoryItemMemoEdit2
+        '
+        Me.RepositoryItemMemoEdit2.Name = "RepositoryItemMemoEdit2"
+        '
+        'RepositoryItemMemoEdit3
+        '
+        Me.RepositoryItemMemoEdit3.Name = "RepositoryItemMemoEdit3"
+        '
+        'RepositoryItemMemoEdit4
+        '
+        Me.RepositoryItemMemoEdit4.Name = "RepositoryItemMemoEdit4"
+        '
+        'RepositoryItemMemoEdit5
+        '
+        Me.RepositoryItemMemoEdit5.Name = "RepositoryItemMemoEdit5"
+        '
+        'rowSurveyName
+        '
+        Me.rowSurveyName.Height = 42
+        Me.rowSurveyName.Name = "rowSurveyName"
+        Me.rowSurveyName.Properties.Caption = "Survey Name"
+        Me.rowSurveyName.Properties.FieldName = "SurveyName"
+        '
+        'rowYear
+        '
+        Me.rowYear.Name = "rowYear"
+        Me.rowYear.Properties.Caption = "Year"
+        Me.rowYear.Properties.FieldName = "Year"
+        '
+        'rowPark
+        '
+        Me.rowPark.Name = "rowPark"
+        Me.rowPark.Properties.Caption = "Park"
+        Me.rowPark.Properties.FieldName = "Park"
+        '
+        'rowParkSubArea
+        '
+        Me.rowParkSubArea.Name = "rowParkSubArea"
+        Me.rowParkSubArea.Properties.Caption = "Park Sub Area"
+        Me.rowParkSubArea.Properties.FieldName = "ParkSubArea"
+        '
+        'rowStartDate
+        '
+        Me.rowStartDate.Name = "rowStartDate"
+        Me.rowStartDate.Properties.Caption = "Start Date"
+        Me.rowStartDate.Properties.FieldName = "StartDate"
+        '
+        'rowEndDate
+        '
+        Me.rowEndDate.Name = "rowEndDate"
+        Me.rowEndDate.Properties.Caption = "End Date"
+        Me.rowEndDate.Properties.FieldName = "EndDate"
+        '
+        'rowPopulationEstimate
+        '
+        Me.rowPopulationEstimate.Name = "rowPopulationEstimate"
+        Me.rowPopulationEstimate.Properties.Caption = "Population Estimate"
+        Me.rowPopulationEstimate.Properties.FieldName = "PopulationEstimate"
+        '
+        'rowConfidenceInterval
+        '
+        Me.rowConfidenceInterval.Name = "rowConfidenceInterval"
+        Me.rowConfidenceInterval.Properties.Caption = "Confidence Interval"
+        Me.rowConfidenceInterval.Properties.FieldName = "ConfidenceInterval"
+        '
+        'rowPopulationEstimateUpperCI
+        '
+        Me.rowPopulationEstimateUpperCI.Name = "rowPopulationEstimateUpperCI"
+        Me.rowPopulationEstimateUpperCI.Properties.Caption = "Population Estimate Upper CI"
+        Me.rowPopulationEstimateUpperCI.Properties.FieldName = "PopulationEstimateUpperCI"
+        '
+        'rowPopulationEstimateLowerCI
+        '
+        Me.rowPopulationEstimateLowerCI.Height = 16
+        Me.rowPopulationEstimateLowerCI.Name = "rowPopulationEstimateLowerCI"
+        Me.rowPopulationEstimateLowerCI.Properties.Caption = "Population Estimate Lower CI"
+        Me.rowPopulationEstimateLowerCI.Properties.FieldName = "PopulationEstimateLowerCI"
+        '
+        'rowEstimatedDensity_SqMi
+        '
+        Me.rowEstimatedDensity_SqMi.Name = "rowEstimatedDensity_SqMi"
+        Me.rowEstimatedDensity_SqMi.Properties.Caption = "Estimated Density_Sq Mi"
+        Me.rowEstimatedDensity_SqMi.Properties.FieldName = "EstimatedDensity_SqMi"
+        '
+        'rowAreaSurveyed_mi
+        '
+        Me.rowAreaSurveyed_mi.Name = "rowAreaSurveyed_mi"
+        Me.rowAreaSurveyed_mi.Properties.Caption = "Area Surveyed_mi"
+        Me.rowAreaSurveyed_mi.Properties.FieldName = "AreaSurveyed_mi"
+        '
+        'rowAverageSearchEffort
+        '
+        Me.rowAverageSearchEffort.Name = "rowAverageSearchEffort"
+        Me.rowAverageSearchEffort.Properties.Caption = "Average Search Effort"
+        Me.rowAverageSearchEffort.Properties.FieldName = "AverageSearchEffort"
+        '
+        'rowPersonnel
+        '
+        Me.rowPersonnel.Height = 42
+        Me.rowPersonnel.Name = "rowPersonnel"
+        Me.rowPersonnel.Properties.Caption = "Personnel"
+        Me.rowPersonnel.Properties.FieldName = "Personnel"
+        Me.rowPersonnel.Properties.RowEdit = Me.RepositoryItemMemoEdit1
+        '
+        'rowReportReferenceCode
+        '
+        Me.rowReportReferenceCode.Name = "rowReportReferenceCode"
+        Me.rowReportReferenceCode.Properties.Caption = "Report Reference Code"
+        Me.rowReportReferenceCode.Properties.FieldName = "ReportReferenceCode"
+        '
+        'rowDeliverablesDatasetReferenceCode
+        '
+        Me.rowDeliverablesDatasetReferenceCode.Name = "rowDeliverablesDatasetReferenceCode"
+        Me.rowDeliverablesDatasetReferenceCode.Properties.Caption = "Deliverables Dataset Reference Code"
+        Me.rowDeliverablesDatasetReferenceCode.Properties.FieldName = "DeliverablesDatasetReferenceCode"
+        '
+        'rowProtocolReferenceCode
+        '
+        Me.rowProtocolReferenceCode.Name = "rowProtocolReferenceCode"
+        Me.rowProtocolReferenceCode.Properties.Caption = "Protocol Reference Code"
+        Me.rowProtocolReferenceCode.Properties.FieldName = "ProtocolReferenceCode"
+        '
+        'rowSurveyDatasetTitle
+        '
+        Me.rowSurveyDatasetTitle.Height = 45
+        Me.rowSurveyDatasetTitle.Name = "rowSurveyDatasetTitle"
+        Me.rowSurveyDatasetTitle.Properties.Caption = "Survey Dataset Title"
+        Me.rowSurveyDatasetTitle.Properties.FieldName = "SurveyDatasetTitle"
+        '
+        'rowAbstract
+        '
+        Me.rowAbstract.Height = 184
+        Me.rowAbstract.Name = "rowAbstract"
+        Me.rowAbstract.Properties.Caption = "Abstract"
+        Me.rowAbstract.Properties.FieldName = "Abstract"
+        Me.rowAbstract.Properties.RowEdit = Me.RepositoryItemMemoEdit2
+        '
+        'rowSummary
+        '
+        Me.rowSummary.Height = 202
+        Me.rowSummary.Name = "rowSummary"
+        Me.rowSummary.Properties.Caption = "Summary"
+        Me.rowSummary.Properties.FieldName = "Summary"
+        Me.rowSummary.Properties.RowEdit = Me.RepositoryItemMemoEdit3
+        '
+        'rowDatasetProcessingSteps
+        '
+        Me.rowDatasetProcessingSteps.ChildRows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowComments})
+        Me.rowDatasetProcessingSteps.Height = 362
+        Me.rowDatasetProcessingSteps.Name = "rowDatasetProcessingSteps"
+        Me.rowDatasetProcessingSteps.Properties.Caption = "Dataset Processing Steps"
+        Me.rowDatasetProcessingSteps.Properties.FieldName = "DatasetProcessingSteps"
+        Me.rowDatasetProcessingSteps.Properties.RowEdit = Me.RepositoryItemMemoEdit4
+        '
+        'rowComments
+        '
+        Me.rowComments.Height = 140
+        Me.rowComments.Name = "rowComments"
+        Me.rowComments.Properties.Caption = "Comments"
+        Me.rowComments.Properties.FieldName = "Comments"
+        Me.rowComments.Properties.RowEdit = Me.RepositoryItemMemoEdit5
+        '
+        'rowRecordInsertedDate
+        '
+        Me.rowRecordInsertedDate.Name = "rowRecordInsertedDate"
+        Me.rowRecordInsertedDate.Properties.Caption = "Record Inserted Date"
+        Me.rowRecordInsertedDate.Properties.FieldName = "RecordInsertedDate"
+        '
+        'rowRecordInsertedBy
+        '
+        Me.rowRecordInsertedBy.Name = "rowRecordInsertedBy"
+        Me.rowRecordInsertedBy.Properties.Caption = "Record Inserted By"
+        Me.rowRecordInsertedBy.Properties.FieldName = "RecordInsertedBy"
+        '
+        'rowProtocolVersion
+        '
+        Me.rowProtocolVersion.Name = "rowProtocolVersion"
+        Me.rowProtocolVersion.Properties.Caption = "Protocol Version"
+        Me.rowProtocolVersion.Properties.FieldName = "ProtocolVersion"
         '
         'SplitContainer2
         '
@@ -274,9 +494,8 @@ Partial Class Form1
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.ResultsXtraTabControl)
-        Me.SplitContainer2.Panel2.Controls.Add(Me.ResultsToolStrip)
-        Me.SplitContainer2.Size = New System.Drawing.Size(592, 460)
-        Me.SplitContainer2.SplitterDistance = 146
+        Me.SplitContainer2.Size = New System.Drawing.Size(1226, 1138)
+        Me.SplitContainer2.SplitterDistance = 360
         Me.SplitContainer2.TabIndex = 3
         '
         'GridControl1
@@ -286,43 +505,46 @@ Partial Class Form1
         Me.GridControl1.Location = New System.Drawing.Point(0, 0)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoEdit6, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemMemoEdit7, Me.RepositoryItemMemoExEdit2, Me.RepositoryItemMemoExEdit3, Me.RepositoryItemDateEdit1, Me.RepositoryItemDateEdit2})
-        Me.GridControl1.Size = New System.Drawing.Size(592, 146)
+        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoEdit6, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemMemoEdit7, Me.RepositoryItemMemoExEdit2, Me.RepositoryItemMemoExEdit3, Me.RepositoryItemDateEdit1, Me.RepositoryItemDateEdit2, Me.RepositoryItemDateEdit3})
+        Me.GridControl1.Size = New System.Drawing.Size(1226, 360)
         Me.GridControl1.TabIndex = 2
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
         Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colSurveyName, Me.colYear, Me.colPark, Me.colParkSubArea, Me.colStartDate, Me.colEndDate, Me.colPopulationEstimate, Me.colConfidenceInterval, Me.colPopulationEstimateUpperCI, Me.colPopulationEstimateLowerCI, Me.colEstimatedDensity_SqMi, Me.colAreaSurveyed_mi, Me.colAverageSearchEffort, Me.colPersonnel, Me.colReportReferenceCode, Me.colDeliverablesDatasetReferenceCode, Me.colProtocolReferenceCode, Me.colProtocolVersion, Me.colSurveyDatasetTitle, Me.colAbstract, Me.colSummary, Me.colDatasetProcessingSteps, Me.colComments, Me.colRecordInsertedDate, Me.colRecordInsertedBy})
-        GridFormatRule4.Column = Me.colReportReferenceCode
-        GridFormatRule4.Name = "ReportReferenceCode_NULL_Format"
-        FormatConditionRuleValue4.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        FormatConditionRuleValue4.Appearance.Options.UseBackColor = True
-        FormatConditionRuleValue4.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual
-        FormatConditionRuleValue4.Value1 = "0"
-        GridFormatRule4.Rule = FormatConditionRuleValue4
-        GridFormatRule5.Column = Me.colDeliverablesDatasetReferenceCode
-        GridFormatRule5.ColumnApplyTo = Me.colDeliverablesDatasetReferenceCode
-        GridFormatRule5.Name = "DeliverablesNULLFormat"
-        FormatConditionRuleValue5.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        FormatConditionRuleValue5.Appearance.Options.UseBackColor = True
-        FormatConditionRuleValue5.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual
-        FormatConditionRuleValue5.Value1 = "0"
-        GridFormatRule5.Rule = FormatConditionRuleValue5
-        GridFormatRule6.Column = Me.colProtocolReferenceCode
-        GridFormatRule6.Name = "ProtocolNULLFormat"
-        FormatConditionRuleValue6.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        FormatConditionRuleValue6.Appearance.Options.UseBackColor = True
-        FormatConditionRuleValue6.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual
-        FormatConditionRuleValue6.Value1 = "0"
-        GridFormatRule6.Rule = FormatConditionRuleValue6
-        Me.GridView1.FormatRules.Add(GridFormatRule4)
-        Me.GridView1.FormatRules.Add(GridFormatRule5)
-        Me.GridView1.FormatRules.Add(GridFormatRule6)
+        GridFormatRule1.Column = Me.colReportReferenceCode
+        GridFormatRule1.Name = "ReportReferenceCode_NULL_Format"
+        FormatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        FormatConditionRuleValue1.Appearance.Options.UseBackColor = True
+        FormatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual
+        FormatConditionRuleValue1.Value1 = "0"
+        GridFormatRule1.Rule = FormatConditionRuleValue1
+        GridFormatRule2.Column = Me.colDeliverablesDatasetReferenceCode
+        GridFormatRule2.ColumnApplyTo = Me.colDeliverablesDatasetReferenceCode
+        GridFormatRule2.Name = "DeliverablesNULLFormat"
+        FormatConditionRuleValue2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        FormatConditionRuleValue2.Appearance.Options.UseBackColor = True
+        FormatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual
+        FormatConditionRuleValue2.Value1 = "0"
+        GridFormatRule2.Rule = FormatConditionRuleValue2
+        GridFormatRule3.Column = Me.colProtocolReferenceCode
+        GridFormatRule3.Name = "ProtocolNULLFormat"
+        FormatConditionRuleValue3.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        FormatConditionRuleValue3.Appearance.Options.UseBackColor = True
+        FormatConditionRuleValue3.Condition = DevExpress.XtraEditors.FormatCondition.LessOrEqual
+        FormatConditionRuleValue3.Value1 = "0"
+        GridFormatRule3.Rule = FormatConditionRuleValue3
+        Me.GridView1.FormatRules.Add(GridFormatRule1)
+        Me.GridView1.FormatRules.Add(GridFormatRule2)
+        Me.GridView1.FormatRules.Add(GridFormatRule3)
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
+        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
+        Me.GridView1.OptionsView.ShowFooter = True
         Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colSurveyName, DevExpress.Data.ColumnSortOrder.Descending)})
         '
         'colSurveyName
@@ -524,12 +746,20 @@ Partial Class Form1
         '
         'colRecordInsertedDate
         '
+        Me.colRecordInsertedDate.ColumnEdit = Me.RepositoryItemDateEdit3
         Me.colRecordInsertedDate.FieldName = "RecordInsertedDate"
         Me.colRecordInsertedDate.Name = "colRecordInsertedDate"
         Me.colRecordInsertedDate.OptionsColumn.ReadOnly = True
         Me.colRecordInsertedDate.Visible = True
         Me.colRecordInsertedDate.VisibleIndex = 21
         Me.colRecordInsertedDate.Width = 199
+        '
+        'RepositoryItemDateEdit3
+        '
+        Me.RepositoryItemDateEdit3.AutoHeight = False
+        Me.RepositoryItemDateEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemDateEdit3.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemDateEdit3.Name = "RepositoryItemDateEdit3"
         '
         'colRecordInsertedBy
         '
@@ -550,13 +780,177 @@ Partial Class Form1
         Me.RepositoryItemMemoEdit7.LinesCount = 20
         Me.RepositoryItemMemoEdit7.Name = "RepositoryItemMemoEdit7"
         '
+        'ResultsXtraTabControl
+        '
+        Me.ResultsXtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ResultsXtraTabControl.Location = New System.Drawing.Point(0, 0)
+        Me.ResultsXtraTabControl.Name = "ResultsXtraTabControl"
+        Me.ResultsXtraTabControl.SelectedTabPage = Me.ResultsXtraTabPage
+        Me.ResultsXtraTabControl.Size = New System.Drawing.Size(1226, 774)
+        Me.ResultsXtraTabControl.TabIndex = 5
+        Me.ResultsXtraTabControl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ResultsXtraTabPage, Me.ResultsPivotXtraTabPage})
+        '
+        'ResultsXtraTabPage
+        '
+        Me.ResultsXtraTabPage.Controls.Add(Me.ResultsGridControl)
+        Me.ResultsXtraTabPage.Controls.Add(Me.ResultsToolStrip)
+        Me.ResultsXtraTabPage.Name = "ResultsXtraTabPage"
+        Me.ResultsXtraTabPage.Size = New System.Drawing.Size(1224, 749)
+        Me.ResultsXtraTabPage.Text = "Results"
+        '
+        'ResultsGridControl
+        '
+        Me.ResultsGridControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ResultsGridControl.Location = New System.Drawing.Point(0, 20)
+        Me.ResultsGridControl.MainView = Me.ResultsView
+        Me.ResultsGridControl.Name = "ResultsGridControl"
+        Me.ResultsGridControl.Size = New System.Drawing.Size(979, 579)
+        Me.ResultsGridControl.TabIndex = 0
+        Me.ResultsGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ResultsView})
+        '
+        'ResultsView
+        '
+        Me.ResultsView.GridControl = Me.ResultsGridControl
+        Me.ResultsView.Name = "ResultsView"
+        Me.ResultsView.OptionsView.ColumnAutoWidth = False
+        Me.ResultsView.OptionsView.ShowFooter = True
+        '
+        'ResultsToolStrip
+        '
+        Me.ResultsToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ResultsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.SelectAQueryToolStripComboBox, Me.LoadQueryResultsToolStripButton, Me.ToolStripSeparator6, Me.ExportGridToExcelToolStripButton})
+        Me.ResultsToolStrip.Location = New System.Drawing.Point(0, 0)
+        Me.ResultsToolStrip.Name = "ResultsToolStrip"
+        Me.ResultsToolStrip.Size = New System.Drawing.Size(1224, 25)
+        Me.ResultsToolStrip.TabIndex = 3
+        Me.ResultsToolStrip.Text = "ToolStrip2"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(114, 22)
+        Me.ToolStripLabel1.Text = "Select a data source:"
+        '
+        'SelectAQueryToolStripComboBox
+        '
+        Me.SelectAQueryToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SelectAQueryToolStripComboBox.Name = "SelectAQueryToolStripComboBox"
+        Me.SelectAQueryToolStripComboBox.Size = New System.Drawing.Size(400, 25)
+        '
+        'LoadQueryResultsToolStripButton
+        '
+        Me.LoadQueryResultsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.LoadQueryResultsToolStripButton.Image = CType(resources.GetObject("LoadQueryResultsToolStripButton.Image"), System.Drawing.Image)
+        Me.LoadQueryResultsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.LoadQueryResultsToolStripButton.Name = "LoadQueryResultsToolStripButton"
+        Me.LoadQueryResultsToolStripButton.Size = New System.Drawing.Size(74, 22)
+        Me.LoadQueryResultsToolStripButton.Text = "Load results"
+        '
+        'ResultsPivotXtraTabPage
+        '
+        Me.ResultsPivotXtraTabPage.Controls.Add(Me.ResultsPivotSplitContainer)
+        Me.ResultsPivotXtraTabPage.Controls.Add(Me.ResultsPivotToolStrip)
+        Me.ResultsPivotXtraTabPage.Name = "ResultsPivotXtraTabPage"
+        Me.ResultsPivotXtraTabPage.Size = New System.Drawing.Size(1224, 749)
+        Me.ResultsPivotXtraTabPage.Text = "Analytics"
+        '
+        'ResultsPivotSplitContainer
+        '
+        Me.ResultsPivotSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ResultsPivotSplitContainer.Location = New System.Drawing.Point(0, 20)
+        Me.ResultsPivotSplitContainer.Name = "ResultsPivotSplitContainer"
+        '
+        'ResultsPivotSplitContainer.Panel1
+        '
+        Me.ResultsPivotSplitContainer.Panel1.Controls.Add(Me.ResultsPivotGridControl)
+        '
+        'ResultsPivotSplitContainer.Panel2
+        '
+        Me.ResultsPivotSplitContainer.Panel2.Controls.Add(Me.ResultsPivotChartControl)
+        Me.ResultsPivotSplitContainer.Size = New System.Drawing.Size(979, 583)
+        Me.ResultsPivotSplitContainer.SplitterDistance = 920
+        Me.ResultsPivotSplitContainer.TabIndex = 6
+        '
+        'ResultsPivotGridControl
+        '
+        Me.ResultsPivotGridControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ResultsPivotGridControl.Location = New System.Drawing.Point(0, 0)
+        Me.ResultsPivotGridControl.Name = "ResultsPivotGridControl"
+        Me.ResultsPivotGridControl.Size = New System.Drawing.Size(920, 583)
+        Me.ResultsPivotGridControl.TabIndex = 4
+        '
+        'ResultsPivotChartControl
+        '
+        Me.ResultsPivotChartControl.DataSource = Me.ResultsPivotGridControl
+        XyDiagram1.AxisX.VisibleInPanesSerializable = "-1"
+        XyDiagram1.AxisY.VisibleInPanesSerializable = "-1"
+        Me.ResultsPivotChartControl.Diagram = XyDiagram1
+        Me.ResultsPivotChartControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ResultsPivotChartControl.Legend.MaxHorizontalPercentage = 30.0R
+        Me.ResultsPivotChartControl.Legend.Name = "Default Legend"
+        Me.ResultsPivotChartControl.Location = New System.Drawing.Point(0, 0)
+        Me.ResultsPivotChartControl.Name = "ResultsPivotChartControl"
+        Me.ResultsPivotChartControl.SeriesDataMember = "Series"
+        Me.ResultsPivotChartControl.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
+        Me.ResultsPivotChartControl.SeriesTemplate.ArgumentDataMember = "Arguments"
+        Me.ResultsPivotChartControl.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative
+        Me.ResultsPivotChartControl.SeriesTemplate.SeriesDataMember = "Series"
+        Me.ResultsPivotChartControl.SeriesTemplate.ValueDataMembersSerializable = "Values"
+        Me.ResultsPivotChartControl.Size = New System.Drawing.Size(55, 583)
+        Me.ResultsPivotChartControl.TabIndex = 5
+        '
+        'ResultsPivotToolStrip
+        '
+        Me.ResultsPivotToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ResultsPivotToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2, Me.SelectAResultsPivotDatasourceToolStripComboBox, Me.SelectAResultsPivotDatasourceToolStripButton, Me.ToolStripSeparator5, Me.ExportSurveySummaryToExcelToolStripButton})
+        Me.ResultsPivotToolStrip.Location = New System.Drawing.Point(0, 0)
+        Me.ResultsPivotToolStrip.Name = "ResultsPivotToolStrip"
+        Me.ResultsPivotToolStrip.Size = New System.Drawing.Size(979, 20)
+        Me.ResultsPivotToolStrip.TabIndex = 6
+        Me.ResultsPivotToolStrip.Text = "ToolStrip2"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(114, 17)
+        Me.ToolStripLabel2.Text = "Select a data source:"
+        '
+        'SelectAResultsPivotDatasourceToolStripComboBox
+        '
+        Me.SelectAResultsPivotDatasourceToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SelectAResultsPivotDatasourceToolStripComboBox.Name = "SelectAResultsPivotDatasourceToolStripComboBox"
+        Me.SelectAResultsPivotDatasourceToolStripComboBox.Size = New System.Drawing.Size(121, 20)
+        '
+        'SelectAResultsPivotDatasourceToolStripButton
+        '
+        Me.SelectAResultsPivotDatasourceToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.SelectAResultsPivotDatasourceToolStripButton.Image = CType(resources.GetObject("SelectAResultsPivotDatasourceToolStripButton.Image"), System.Drawing.Image)
+        Me.SelectAResultsPivotDatasourceToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SelectAResultsPivotDatasourceToolStripButton.Name = "SelectAResultsPivotDatasourceToolStripButton"
+        Me.SelectAResultsPivotDatasourceToolStripButton.Size = New System.Drawing.Size(101, 17)
+        Me.SelectAResultsPivotDatasourceToolStripButton.Text = "Load data source"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 20)
+        '
+        'ExportSurveySummaryToExcelToolStripButton
+        '
+        Me.ExportSurveySummaryToExcelToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ExportSurveySummaryToExcelToolStripButton.Image = CType(resources.GetObject("ExportSurveySummaryToExcelToolStripButton.Image"), System.Drawing.Image)
+        Me.ExportSurveySummaryToExcelToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ExportSurveySummaryToExcelToolStripButton.Name = "ExportSurveySummaryToExcelToolStripButton"
+        Me.ExportSurveySummaryToExcelToolStripButton.Size = New System.Drawing.Size(96, 17)
+        Me.ExportSurveySummaryToExcelToolStripButton.Text = "Export to Excel..."
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.OpenResourcesToolStripButton, Me.ToolStripSeparator2, Me.CertifySurveyToolStripButton, Me.ToolStripSeparator3, Me.RefreshDatasetToolStripButton})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.OpenResourcesToolStripButton, Me.ToolStripSeparator2, Me.CertifySurveyToolStripButton, Me.ToolStripSeparator3, Me.RefreshDatasetToolStripButton, Me.ToolStripSeparator4, Me.AnalyticsToolStripDropDownButton})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(944, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1677, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -611,333 +1005,46 @@ Partial Class Form1
         Me.RefreshDatasetToolStripButton.Size = New System.Drawing.Size(91, 22)
         Me.RefreshDatasetToolStripButton.Text = "Refresh dataset"
         '
-        'ResultsXtraTabControl
+        'ToolStripSeparator4
         '
-        Me.ResultsXtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ResultsXtraTabControl.Location = New System.Drawing.Point(0, 25)
-        Me.ResultsXtraTabControl.Name = "ResultsXtraTabControl"
-        Me.ResultsXtraTabControl.SelectedTabPage = Me.ResultsXtraTabPage
-        Me.ResultsXtraTabControl.Size = New System.Drawing.Size(592, 285)
-        Me.ResultsXtraTabControl.TabIndex = 5
-        Me.ResultsXtraTabControl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ResultsXtraTabPage, Me.ResultsPivotXtraTabPage})
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
         '
-        'ResultsXtraTabPage
+        'AnalyticsToolStripDropDownButton
         '
-        Me.ResultsXtraTabPage.Controls.Add(Me.ResultsGridControl)
-        Me.ResultsXtraTabPage.Name = "ResultsXtraTabPage"
-        Me.ResultsXtraTabPage.Size = New System.Drawing.Size(590, 260)
-        Me.ResultsXtraTabPage.Text = "Results"
+        Me.AnalyticsToolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.AnalyticsToolStripDropDownButton.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SurveyResultsToolStripMenuItem, Me.GSPEDatasetSummaryToolStripMenuItem, Me.QueryExplorerToolStripMenuItem})
+        Me.AnalyticsToolStripDropDownButton.Image = CType(resources.GetObject("AnalyticsToolStripDropDownButton.Image"), System.Drawing.Image)
+        Me.AnalyticsToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.AnalyticsToolStripDropDownButton.Name = "AnalyticsToolStripDropDownButton"
+        Me.AnalyticsToolStripDropDownButton.Size = New System.Drawing.Size(69, 22)
+        Me.AnalyticsToolStripDropDownButton.Text = "Analytics"
         '
-        'ResultsGridControl
+        'SurveyResultsToolStripMenuItem
         '
-        Me.ResultsGridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ResultsGridControl.Location = New System.Drawing.Point(0, 0)
-        Me.ResultsGridControl.MainView = Me.ResultsView
-        Me.ResultsGridControl.Name = "ResultsGridControl"
-        Me.ResultsGridControl.Size = New System.Drawing.Size(472, 208)
-        Me.ResultsGridControl.TabIndex = 0
-        Me.ResultsGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ResultsView})
+        Me.SurveyResultsToolStripMenuItem.Name = "SurveyResultsToolStripMenuItem"
+        Me.SurveyResultsToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.SurveyResultsToolStripMenuItem.Text = "Summarize population estimates..."
         '
-        'ResultsView
+        'GSPEDatasetSummaryToolStripMenuItem
         '
-        Me.ResultsView.GridControl = Me.ResultsGridControl
-        Me.ResultsView.Name = "ResultsView"
-        Me.ResultsView.OptionsView.ColumnAutoWidth = False
-        Me.ResultsView.OptionsView.ShowFooter = True
+        Me.GSPEDatasetSummaryToolStripMenuItem.Name = "GSPEDatasetSummaryToolStripMenuItem"
+        Me.GSPEDatasetSummaryToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.GSPEDatasetSummaryToolStripMenuItem.Text = "Summarize GSPE dataset results...."
         '
-        'ResultsPivotXtraTabPage
+        'QueryExplorerToolStripMenuItem
         '
-        Me.ResultsPivotXtraTabPage.Controls.Add(Me.ResultsPivotSplitContainer)
-        Me.ResultsPivotXtraTabPage.Name = "ResultsPivotXtraTabPage"
-        Me.ResultsPivotXtraTabPage.Size = New System.Drawing.Size(590, 260)
-        Me.ResultsPivotXtraTabPage.Text = "Analytics"
-        '
-        'ResultsPivotSplitContainer
-        '
-        Me.ResultsPivotSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ResultsPivotSplitContainer.Location = New System.Drawing.Point(0, 0)
-        Me.ResultsPivotSplitContainer.Name = "ResultsPivotSplitContainer"
-        '
-        'ResultsPivotSplitContainer.Panel1
-        '
-        Me.ResultsPivotSplitContainer.Panel1.Controls.Add(Me.ResultsPivotGridControl)
-        '
-        'ResultsPivotSplitContainer.Panel2
-        '
-        Me.ResultsPivotSplitContainer.Panel2.Controls.Add(Me.ResultsPivotChartControl)
-        Me.ResultsPivotSplitContainer.Size = New System.Drawing.Size(590, 260)
-        Me.ResultsPivotSplitContainer.SplitterDistance = 557
-        Me.ResultsPivotSplitContainer.TabIndex = 6
-        '
-        'ResultsPivotGridControl
-        '
-        Me.ResultsPivotGridControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ResultsPivotGridControl.Location = New System.Drawing.Point(0, 0)
-        Me.ResultsPivotGridControl.Name = "ResultsPivotGridControl"
-        Me.ResultsPivotGridControl.Size = New System.Drawing.Size(357, 133)
-        Me.ResultsPivotGridControl.TabIndex = 4
-        '
-        'ResultsPivotChartControl
-        '
-        Me.ResultsPivotChartControl.DataSource = Me.ResultsPivotGridControl
-        XyDiagram1.AxisX.VisibleInPanesSerializable = "-1"
-        XyDiagram1.AxisY.VisibleInPanesSerializable = "-1"
-        Me.ResultsPivotChartControl.Diagram = XyDiagram1
-        Me.ResultsPivotChartControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ResultsPivotChartControl.Legend.MaxHorizontalPercentage = 30.0R
-        Me.ResultsPivotChartControl.Legend.Name = "Default Legend"
-        Me.ResultsPivotChartControl.Location = New System.Drawing.Point(0, 0)
-        Me.ResultsPivotChartControl.Name = "ResultsPivotChartControl"
-        Me.ResultsPivotChartControl.SeriesDataMember = "Series"
-        Me.ResultsPivotChartControl.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
-        Me.ResultsPivotChartControl.SeriesTemplate.ArgumentDataMember = "Arguments"
-        Me.ResultsPivotChartControl.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative
-        Me.ResultsPivotChartControl.SeriesTemplate.SeriesDataMember = "Series"
-        Me.ResultsPivotChartControl.SeriesTemplate.ValueDataMembersSerializable = "Values"
-        Me.ResultsPivotChartControl.Size = New System.Drawing.Size(18, 166)
-        Me.ResultsPivotChartControl.TabIndex = 5
-        '
-        'ResultsToolStrip
-        '
-        Me.ResultsToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ResultsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.SelectAQueryToolStripComboBox, Me.LoadQueryResultsToolStripButton})
-        Me.ResultsToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.ResultsToolStrip.Name = "ResultsToolStrip"
-        Me.ResultsToolStrip.Size = New System.Drawing.Size(592, 25)
-        Me.ResultsToolStrip.TabIndex = 3
-        Me.ResultsToolStrip.Text = "ToolStrip2"
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripLabel1.Text = "Select a query:"
-        '
-        'SelectAQueryToolStripComboBox
-        '
-        Me.SelectAQueryToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SelectAQueryToolStripComboBox.Name = "SelectAQueryToolStripComboBox"
-        Me.SelectAQueryToolStripComboBox.Size = New System.Drawing.Size(400, 25)
-        '
-        'LoadQueryResultsToolStripButton
-        '
-        Me.LoadQueryResultsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.LoadQueryResultsToolStripButton.Image = CType(resources.GetObject("LoadQueryResultsToolStripButton.Image"), System.Drawing.Image)
-        Me.LoadQueryResultsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.LoadQueryResultsToolStripButton.Name = "LoadQueryResultsToolStripButton"
-        Me.LoadQueryResultsToolStripButton.Size = New System.Drawing.Size(74, 22)
-        Me.LoadQueryResultsToolStripButton.Text = "Load results"
-        '
-        'VGridControl1
-        '
-        Me.VGridControl1.Appearance.RecordValue.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.VGridControl1.Appearance.RecordValue.Options.UseFont = True
-        Me.VGridControl1.Appearance.RowHeaderPanel.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.VGridControl1.Appearance.RowHeaderPanel.Options.UseFont = True
-        Me.VGridControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.VGridControl1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.VGridControl1.DataSource = Me.GSPE_SurveysBindingSource
-        Me.VGridControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VGridControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView
-        Me.VGridControl1.Location = New System.Drawing.Point(0, 0)
-        Me.VGridControl1.Name = "VGridControl1"
-        Me.VGridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoEdit1, Me.RepositoryItemMemoEdit2, Me.RepositoryItemMemoEdit3, Me.RepositoryItemMemoEdit4, Me.RepositoryItemMemoEdit5})
-        Me.VGridControl1.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowSurveyName, Me.rowYear, Me.rowPark, Me.rowParkSubArea, Me.rowStartDate, Me.rowEndDate, Me.rowPopulationEstimate, Me.rowConfidenceInterval, Me.rowPopulationEstimateUpperCI, Me.rowPopulationEstimateLowerCI, Me.rowEstimatedDensity_SqMi, Me.rowAreaSurveyed_mi, Me.rowAverageSearchEffort, Me.rowPersonnel, Me.rowReportReferenceCode, Me.rowDeliverablesDatasetReferenceCode, Me.rowProtocolReferenceCode, Me.rowSurveyDatasetTitle, Me.rowAbstract, Me.rowSummary, Me.rowDatasetProcessingSteps, Me.rowRecordInsertedDate, Me.rowRecordInsertedBy, Me.rowProtocolVersion})
-        Me.VGridControl1.Size = New System.Drawing.Size(159, 460)
-        Me.VGridControl1.TabIndex = 0
-        '
-        'RepositoryItemMemoEdit1
-        '
-        Me.RepositoryItemMemoEdit1.Name = "RepositoryItemMemoEdit1"
-        '
-        'RepositoryItemMemoEdit2
-        '
-        Me.RepositoryItemMemoEdit2.Name = "RepositoryItemMemoEdit2"
-        '
-        'RepositoryItemMemoEdit3
-        '
-        Me.RepositoryItemMemoEdit3.Name = "RepositoryItemMemoEdit3"
-        '
-        'RepositoryItemMemoEdit4
-        '
-        Me.RepositoryItemMemoEdit4.Name = "RepositoryItemMemoEdit4"
-        '
-        'RepositoryItemMemoEdit5
-        '
-        Me.RepositoryItemMemoEdit5.Name = "RepositoryItemMemoEdit5"
-        '
-        'rowSurveyName
-        '
-        Me.rowSurveyName.Height = 42
-        Me.rowSurveyName.Name = "rowSurveyName"
-        Me.rowSurveyName.Properties.Caption = "Survey Name"
-        Me.rowSurveyName.Properties.FieldName = "SurveyName"
-        '
-        'rowYear
-        '
-        Me.rowYear.Name = "rowYear"
-        Me.rowYear.Properties.Caption = "Year"
-        Me.rowYear.Properties.FieldName = "Year"
-        '
-        'rowPark
-        '
-        Me.rowPark.Name = "rowPark"
-        Me.rowPark.Properties.Caption = "Park"
-        Me.rowPark.Properties.FieldName = "Park"
-        '
-        'rowParkSubArea
-        '
-        Me.rowParkSubArea.Name = "rowParkSubArea"
-        Me.rowParkSubArea.Properties.Caption = "Park Sub Area"
-        Me.rowParkSubArea.Properties.FieldName = "ParkSubArea"
-        '
-        'rowStartDate
-        '
-        Me.rowStartDate.Name = "rowStartDate"
-        Me.rowStartDate.Properties.Caption = "Start Date"
-        Me.rowStartDate.Properties.FieldName = "StartDate"
-        '
-        'rowEndDate
-        '
-        Me.rowEndDate.Name = "rowEndDate"
-        Me.rowEndDate.Properties.Caption = "End Date"
-        Me.rowEndDate.Properties.FieldName = "EndDate"
-        '
-        'rowPopulationEstimate
-        '
-        Me.rowPopulationEstimate.Name = "rowPopulationEstimate"
-        Me.rowPopulationEstimate.Properties.Caption = "Population Estimate"
-        Me.rowPopulationEstimate.Properties.FieldName = "PopulationEstimate"
-        '
-        'rowConfidenceInterval
-        '
-        Me.rowConfidenceInterval.Name = "rowConfidenceInterval"
-        Me.rowConfidenceInterval.Properties.Caption = "Confidence Interval"
-        Me.rowConfidenceInterval.Properties.FieldName = "ConfidenceInterval"
-        '
-        'rowPopulationEstimateUpperCI
-        '
-        Me.rowPopulationEstimateUpperCI.Name = "rowPopulationEstimateUpperCI"
-        Me.rowPopulationEstimateUpperCI.Properties.Caption = "Population Estimate Upper CI"
-        Me.rowPopulationEstimateUpperCI.Properties.FieldName = "PopulationEstimateUpperCI"
-        '
-        'rowPopulationEstimateLowerCI
-        '
-        Me.rowPopulationEstimateLowerCI.Height = 16
-        Me.rowPopulationEstimateLowerCI.Name = "rowPopulationEstimateLowerCI"
-        Me.rowPopulationEstimateLowerCI.Properties.Caption = "Population Estimate Lower CI"
-        Me.rowPopulationEstimateLowerCI.Properties.FieldName = "PopulationEstimateLowerCI"
-        '
-        'rowEstimatedDensity_SqMi
-        '
-        Me.rowEstimatedDensity_SqMi.Name = "rowEstimatedDensity_SqMi"
-        Me.rowEstimatedDensity_SqMi.Properties.Caption = "Estimated Density_Sq Mi"
-        Me.rowEstimatedDensity_SqMi.Properties.FieldName = "EstimatedDensity_SqMi"
-        '
-        'rowAreaSurveyed_mi
-        '
-        Me.rowAreaSurveyed_mi.Name = "rowAreaSurveyed_mi"
-        Me.rowAreaSurveyed_mi.Properties.Caption = "Area Surveyed_mi"
-        Me.rowAreaSurveyed_mi.Properties.FieldName = "AreaSurveyed_mi"
-        '
-        'rowAverageSearchEffort
-        '
-        Me.rowAverageSearchEffort.Name = "rowAverageSearchEffort"
-        Me.rowAverageSearchEffort.Properties.Caption = "Average Search Effort"
-        Me.rowAverageSearchEffort.Properties.FieldName = "AverageSearchEffort"
-        '
-        'rowPersonnel
-        '
-        Me.rowPersonnel.Height = 42
-        Me.rowPersonnel.Name = "rowPersonnel"
-        Me.rowPersonnel.Properties.Caption = "Personnel"
-        Me.rowPersonnel.Properties.FieldName = "Personnel"
-        Me.rowPersonnel.Properties.RowEdit = Me.RepositoryItemMemoEdit1
-        '
-        'rowReportReferenceCode
-        '
-        Me.rowReportReferenceCode.Name = "rowReportReferenceCode"
-        Me.rowReportReferenceCode.Properties.Caption = "Report Reference Code"
-        Me.rowReportReferenceCode.Properties.FieldName = "ReportReferenceCode"
-        '
-        'rowDeliverablesDatasetReferenceCode
-        '
-        Me.rowDeliverablesDatasetReferenceCode.Name = "rowDeliverablesDatasetReferenceCode"
-        Me.rowDeliverablesDatasetReferenceCode.Properties.Caption = "Deliverables Dataset Reference Code"
-        Me.rowDeliverablesDatasetReferenceCode.Properties.FieldName = "DeliverablesDatasetReferenceCode"
-        '
-        'rowProtocolReferenceCode
-        '
-        Me.rowProtocolReferenceCode.Name = "rowProtocolReferenceCode"
-        Me.rowProtocolReferenceCode.Properties.Caption = "Protocol Reference Code"
-        Me.rowProtocolReferenceCode.Properties.FieldName = "ProtocolReferenceCode"
-        '
-        'rowSurveyDatasetTitle
-        '
-        Me.rowSurveyDatasetTitle.Height = 45
-        Me.rowSurveyDatasetTitle.Name = "rowSurveyDatasetTitle"
-        Me.rowSurveyDatasetTitle.Properties.Caption = "Survey Dataset Title"
-        Me.rowSurveyDatasetTitle.Properties.FieldName = "SurveyDatasetTitle"
-        '
-        'rowAbstract
-        '
-        Me.rowAbstract.Height = 184
-        Me.rowAbstract.Name = "rowAbstract"
-        Me.rowAbstract.Properties.Caption = "Abstract"
-        Me.rowAbstract.Properties.FieldName = "Abstract"
-        Me.rowAbstract.Properties.RowEdit = Me.RepositoryItemMemoEdit2
-        '
-        'rowSummary
-        '
-        Me.rowSummary.Height = 202
-        Me.rowSummary.Name = "rowSummary"
-        Me.rowSummary.Properties.Caption = "Summary"
-        Me.rowSummary.Properties.FieldName = "Summary"
-        Me.rowSummary.Properties.RowEdit = Me.RepositoryItemMemoEdit3
-        '
-        'rowDatasetProcessingSteps
-        '
-        Me.rowDatasetProcessingSteps.ChildRows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowComments})
-        Me.rowDatasetProcessingSteps.Height = 362
-        Me.rowDatasetProcessingSteps.Name = "rowDatasetProcessingSteps"
-        Me.rowDatasetProcessingSteps.Properties.Caption = "Dataset Processing Steps"
-        Me.rowDatasetProcessingSteps.Properties.FieldName = "DatasetProcessingSteps"
-        Me.rowDatasetProcessingSteps.Properties.RowEdit = Me.RepositoryItemMemoEdit4
-        '
-        'rowComments
-        '
-        Me.rowComments.Height = 140
-        Me.rowComments.Name = "rowComments"
-        Me.rowComments.Properties.Caption = "Comments"
-        Me.rowComments.Properties.FieldName = "Comments"
-        Me.rowComments.Properties.RowEdit = Me.RepositoryItemMemoEdit5
-        '
-        'rowRecordInsertedDate
-        '
-        Me.rowRecordInsertedDate.Name = "rowRecordInsertedDate"
-        Me.rowRecordInsertedDate.Properties.Caption = "Record Inserted Date"
-        Me.rowRecordInsertedDate.Properties.FieldName = "RecordInsertedDate"
-        '
-        'rowRecordInsertedBy
-        '
-        Me.rowRecordInsertedBy.Name = "rowRecordInsertedBy"
-        Me.rowRecordInsertedBy.Properties.Caption = "Record Inserted By"
-        Me.rowRecordInsertedBy.Properties.FieldName = "RecordInsertedBy"
-        '
-        'rowProtocolVersion
-        '
-        Me.rowProtocolVersion.Name = "rowProtocolVersion"
-        Me.rowProtocolVersion.Properties.Caption = "Protocol Version"
-        Me.rowProtocolVersion.Properties.FieldName = "ProtocolVersion"
+        Me.QueryExplorerToolStripMenuItem.Name = "QueryExplorerToolStripMenuItem"
+        Me.QueryExplorerToolStripMenuItem.Size = New System.Drawing.Size(256, 22)
+        Me.QueryExplorerToolStripMenuItem.Text = "Query explorer..."
         '
         'HeaderPanel
         '
         Me.HeaderPanel.Controls.Add(Me.HeaderLabel)
         Me.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top
-        Me.HeaderPanel.Location = New System.Drawing.Point(0, 20)
+        Me.HeaderPanel.Location = New System.Drawing.Point(0, 25)
         Me.HeaderPanel.Name = "HeaderPanel"
-        Me.HeaderPanel.Size = New System.Drawing.Size(944, 45)
+        Me.HeaderPanel.Size = New System.Drawing.Size(1677, 45)
         Me.HeaderPanel.TabIndex = 2
         '
         'HeaderLabel
@@ -947,7 +1054,7 @@ Partial Class Form1
         Me.HeaderLabel.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
         Me.HeaderLabel.Location = New System.Drawing.Point(3, 6)
         Me.HeaderLabel.Name = "HeaderLabel"
-        Me.HeaderLabel.Size = New System.Drawing.Size(941, 71)
+        Me.HeaderLabel.Size = New System.Drawing.Size(1674, 71)
         Me.HeaderLabel.TabIndex = 0
         Me.HeaderLabel.Text = "HeaderLabel"
         '
@@ -1042,15 +1149,29 @@ Partial Class Form1
         Me.GSPESurveysBindingSource.DataMember = "GSPE_Surveys"
         Me.GSPESurveysBindingSource.DataSource = Me.MooseDataSet
         '
-        'Form1
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 25)
+        '
+        'ExportGridToExcelToolStripButton
+        '
+        Me.ExportGridToExcelToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ExportGridToExcelToolStripButton.Image = CType(resources.GetObject("ExportGridToExcelToolStripButton.Image"), System.Drawing.Image)
+        Me.ExportGridToExcelToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ExportGridToExcelToolStripButton.Name = "ExportGridToExcelToolStripButton"
+        Me.ExportGridToExcelToolStripButton.Size = New System.Drawing.Size(96, 22)
+        Me.ExportGridToExcelToolStripButton.Text = "Export to Excel..."
+        '
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(944, 645)
+        Me.ClientSize = New System.Drawing.Size(1677, 1208)
         Me.Controls.Add(Me.SplitContainerMain)
         Me.Controls.Add(Me.HeaderPanel)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Name = "Form1"
+        Me.Name = "MainForm"
         Me.Text = "Moose"
         CType(Me.MooseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GSPE_SurveysBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1059,9 +1180,14 @@ Partial Class Form1
         Me.SplitContainerMain.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerMain.ResumeLayout(False)
+        CType(Me.VGridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.PerformLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.ResumeLayout(False)
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1073,16 +1199,20 @@ Partial Class Form1
         CType(Me.RepositoryItemMemoExEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemMemoExEdit3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemDateEdit3.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemDateEdit3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemMemoEdit6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemMemoEdit7, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         CType(Me.ResultsXtraTabControl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResultsXtraTabControl.ResumeLayout(False)
         Me.ResultsXtraTabPage.ResumeLayout(False)
+        Me.ResultsXtraTabPage.PerformLayout()
         CType(Me.ResultsGridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ResultsView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResultsToolStrip.ResumeLayout(False)
+        Me.ResultsToolStrip.PerformLayout()
         Me.ResultsPivotXtraTabPage.ResumeLayout(False)
+        Me.ResultsPivotXtraTabPage.PerformLayout()
         Me.ResultsPivotSplitContainer.Panel1.ResumeLayout(False)
         Me.ResultsPivotSplitContainer.Panel2.ResumeLayout(False)
         CType(Me.ResultsPivotSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1090,14 +1220,10 @@ Partial Class Form1
         CType(Me.ResultsPivotGridControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(XyDiagram1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ResultsPivotChartControl, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResultsToolStrip.ResumeLayout(False)
-        Me.ResultsToolStrip.PerformLayout()
-        CType(Me.VGridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemMemoEdit5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResultsPivotToolStrip.ResumeLayout(False)
+        Me.ResultsPivotToolStrip.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.HeaderPanel.ResumeLayout(False)
         CType(Me.ArcScaleNeedleComponent1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ArcScaleComponent1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1212,4 +1338,18 @@ Partial Class Form1
     Friend WithEvents GSPESurveysBindingSource As BindingSource
     Friend WithEvents ResultsPivotChartControl As DevExpress.XtraCharts.ChartControl
     Friend WithEvents ResultsPivotSplitContainer As SplitContainer
+    Friend WithEvents ResultsPivotToolStrip As ToolStrip
+    Friend WithEvents ToolStripLabel2 As ToolStripLabel
+    Friend WithEvents SelectAResultsPivotDatasourceToolStripComboBox As ToolStripComboBox
+    Friend WithEvents SelectAResultsPivotDatasourceToolStripButton As ToolStripButton
+    Friend WithEvents RepositoryItemDateEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemDateEdit
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents ExportSurveySummaryToExcelToolStripButton As ToolStripButton
+    Friend WithEvents AnalyticsToolStripDropDownButton As ToolStripDropDownButton
+    Friend WithEvents SurveyResultsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GSPEDatasetSummaryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QueryExplorerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents ExportGridToExcelToolStripButton As ToolStripButton
 End Class
