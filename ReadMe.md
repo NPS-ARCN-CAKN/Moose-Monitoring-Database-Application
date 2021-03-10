@@ -8,4 +8,3 @@ For research objectives, protocols, reports and other products please visit:
 * [Central Alaska Network Moose Monitoring](https://www.nps.gov/im/cakn/moose.htm)
 
 ![Diagram](./MMDA.png)
-Format: ![Diagram of database architecture]
