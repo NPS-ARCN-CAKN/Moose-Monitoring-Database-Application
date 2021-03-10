@@ -330,7 +330,7 @@ Partial Class PopulationEstimateAnalyticsForm
         Me.ClientSize = New System.Drawing.Size(1277, 807)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "PopulationEstimateAnalyticsForm"
-        Me.Text = "PopulationEstimateAnalyticsForm"
+        Me.Text = "Population Estimate Analytics"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -1,4 +1,8 @@
 ﻿Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors.Repository
+Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraVerticalGrid
+Imports DevExpress.XtraVerticalGrid.Rows
 
 Public Class MainForm
 
@@ -46,10 +50,13 @@ Public Class MainForm
         LoadDataset()
 
         LoadQuerySelectorComboBoxes()
+
+
+        Me.ValidatedByRepositoryItemComboBox.Items.Add(My.User.Name)
     End Sub
 
     Private Sub SaveToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveToolStripButton.Click
-        AskToSaveDataset()
+        SaveDataset()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -63,8 +70,9 @@ Public Class MainForm
             'Me.ResultsDataGridView.DataSource = Nothing
             Dim DR As DataRowView = GSPE_SurveysBindingSource.Current
             If Not DR Is Nothing Then
-                'Dim SurveyName As String = DR.Item("SurveyName")
-                If Not IsDBNull(DR.Item("SurveyName")) And DR.Item("SurveyName").Trim.Length > 0 Then
+
+                'if surveyname is not null
+                If Not IsDBNull(DR.Item("SurveyName")) Then
 
                     'Reassign CurrentSurveyName
                     CurrentSurveyName = DR.Item("SurveyName").trim
@@ -152,9 +160,7 @@ Public Class MainForm
         LoadDataset()
     End Sub
 
-    Private Sub LoadQueryResultsToolStripButton_Click(sender As Object, e As EventArgs) Handles LoadQueryResultsToolStripButton.Click
-        LoadResultsGrid()
-    End Sub
+
     Private Sub SelectAResultsPivotDatasourceToolStripButton_Click(sender As Object, e As EventArgs) Handles SelectAResultsPivotDatasourceToolStripButton.Click
         LoadResultsPivotGrid()
     End Sub
@@ -214,8 +220,8 @@ Public Class MainForm
 
 
 
-    Private Sub ExportSurveySummaryToExcelToolStripButton_Click(sender As Object, e As EventArgs) Handles ExportSurveySummaryToExcelToolStripButton.Click
-        Me.ResultsPivotGridControl.ExportToXlsx("C:\temp\zTemp.xlsx")
+    Private Sub ExportSurveySummaryToExcelToolStripButton_Click(sender As Object, e As EventArgs)
+        SavePivotGridControlToExcel(Me.ResultsPivotGridControl, ExportFormat.xlsx)
     End Sub
 
     Private Sub GSPEDatasetSummaryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GSPEDatasetSummaryToolStripMenuItem.Click
@@ -233,7 +239,72 @@ Public Class MainForm
         QueryExplorerForm.Show()
     End Sub
 
-    Private Sub ExportGridToExcelToolStripButton_Click(sender As Object, e As EventArgs) Handles ExportGridToExcelToolStripButton.Click
-        SaveResultsToExcel(Me.ResultsGridControl)
+    Private Sub ExportGridToExcelToolStripButton_Click(sender As Object, e As EventArgs)
+        SaveGridControlToExcel(Me.ResultsGridControl, ExportFormat.xlsx)
     End Sub
+
+    Private Sub GridView1_InitNewRow(sender As Object, e As DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs) Handles GridView1.InitNewRow
+        Dim MyView As GridView = CType(sender, GridView)
+        MyView.SetRowCellValue(e.RowHandle, MyView.Columns("RecordInsertedDate"), Now)
+        MyView.SetRowCellValue(e.RowHandle, MyView.Columns("RecordInsertedBy"), My.User.Name)
+    End Sub
+
+    Private Sub VGridControl1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles GSPE_SurveyVGridControl.MouseDoubleClick
+        PrependDateAndNameToDatasetProcessingStepsValue()
+    End Sub
+
+    ''' <summary>
+    ''' Prepends the current date and user name to the current data processing steps field in the survey vertical grid
+    ''' </summary>
+    Private Sub PrependDateAndNameToDatasetProcessingStepsValue()
+        Try
+            'Get a handle on the survey vertical grid control
+            Dim VG As VGridControl = GSPE_SurveyVGridControl
+
+            'Get the current text
+            Dim CurrentCellValue As String = VG.GetCellValue(VG.FocusedRow, VG.FocusedRecord).ToString
+
+            'If the focused row is the dataset processing steps row then prepend the date and username to the existing text
+            If VG.FocusedRow.Name = "rowDatasetProcessingSteps" Then
+                Dim NewValue As String = Now & " " & My.User.Name & ": " & vbNewLine & CurrentCellValue
+                VG.SetCellValue(VG.FocusedRow, VG.FocusedRecord, NewValue)
+            End If
+
+        Catch ex As Exception
+            Debug.Print(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+
+    End Sub
+
+
+
+    Private Sub ExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem.Click
+        SavePivotGridControlToExcel(Me.ResultsPivotGridControl, ExportFormat.xlsx)
+    End Sub
+
+    Private Sub CommaSeparatedValuesTextFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CommaSeparatedValuesTextFileToolStripMenuItem.Click
+        SavePivotGridControlToExcel(Me.ResultsPivotGridControl, ExportFormat.csv)
+    End Sub
+
+    Private Sub ExcelToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem1.Click
+        SaveGridControlToExcel(Me.ResultsGridControl, ExportFormat.xlsx)
+    End Sub
+
+    Private Sub CommaSeparatedValuesTextFileToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles CommaSeparatedValuesTextFileToolStripMenuItem1.Click
+        SaveGridControlToExcel(Me.ResultsGridControl, ExportFormat.csv)
+    End Sub
+
+    Private Sub SelectAQueryToolStripComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectAQueryToolStripComboBox.SelectedIndexChanged
+        LoadResultsGrid()
+    End Sub
+
+    Private Sub ExcelToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ExcelToolStripMenuItem2.Click
+        SaveGridControlToExcel(Me.GSPE_SurveyGridControl, ExportFormat.xlsx)
+    End Sub
+
+    Private Sub CommaSeparatedValuesTextFileToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles CommaSeparatedValuesTextFileToolStripMenuItem2.Click
+        SaveGridControlToExcel(Me.GSPE_SurveyGridControl, ExportFormat.csv)
+    End Sub
+
+
 End Class

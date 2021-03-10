@@ -1,7 +1,24 @@
 ﻿Imports System.Data.SqlClient
 Imports DevExpress.XtraGrid
+Imports DevExpress.XtraPivotGrid
 
 Module Utilities
+
+    '''' <summary>
+    '''' Returns the current cell value of GridControl.
+    '''' </summary>
+    '''' <param name="GridControl">GridControl to interrogate.</param>
+    '''' <returns></returns>
+    'Public Function GetCurrentGridControlCellValue(GC As GridControl) As String
+    '    Dim ReturnValue As String = ""
+    '    Try
+    '        'Get the current text
+    '        ReturnValue = GC.GetCellValue(GC.FocusedRow, GC.FocusedRecord).ToString
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+    '    End Try
+    '    Return ReturnValue
+    'End Function
 
     ''' <summary>
     ''' Loads all available queries in the Moose database into QuerySelectorComboBox.
@@ -61,24 +78,104 @@ Module Utilities
         Return MyDataTable
     End Function
 
-    Public Sub SaveResultsToExcel(ResultsGridControl As GridControl)
+    ''' <summary>
+    ''' Data export format.
+    ''' </summary>
+    Enum ExportFormat
+        xlsx
+        csv
+    End Enum
+
+    ''' <summary>
+    ''' Saves the immediate contents of GridControl to the format specified by ExportFormat.
+    ''' </summary>
+    ''' <param name="GridControl">CridControl contents to export.</param>
+    ''' <param name="ExportFormat">Export data format.</param>
+    Public Sub SaveGridControlToExcel(GridControl As GridControl, ExportFormat As ExportFormat)
         Try
+            'Build a save file dialog filter based on ExportFormat
+            Dim Filter As String = ""
+            If ExportFormat = ExportFormat.csv Then
+                Filter = "Comma Separated Values text files (*.csv)|*.csv"
+            ElseIf ExportFormat = ExportFormat.xlsx Then
+                Filter = "Excel Files (*.xlsx)|*.xlsx"
+            End If
+
+            'Open a SaveFileDialog to allow the user to choose an export path.
             Dim SFD As New SaveFileDialog
             With SFD
-                .Filter = "Excel Files (*.xlsx)|*.xlsx"
+                .Filter = Filter
                 .AddExtension = True
-                .DefaultExt = ".xlsx"
+                .DefaultExt = "." & ExportFormat.ToString
                 .OverwritePrompt = True
                 .Title = "Save results"
+                .InitialDirectory = "C:\"
             End With
+
+            'Show the save file dialog and if a path is chosen export the control's data to ExportFormat.
             If SFD.ShowDialog = vbOK Then
                 Dim Path As String = SFD.FileName
-                ResultsGridControl.ExportToXlsx(Path)
+                If ExportFormat = ExportFormat.xlsx Then
+                    GridControl.ExportToXlsx(Path)
+                ElseIf ExportFormat = ExportFormat.csv Then
+                    GridControl.ExportToCsv(Path)
+                End If
+
+                'Ask if the user wants to open the exported file
                 If MsgBox("Open the exported spreadsheet?", MsgBoxStyle.YesNo, "Open the exported spreadsheet?") = MsgBoxResult.Yes Then
                     Process.Start(Path)
                 End If
             End If
 
+        Catch ex As Exception
+            MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Saves the immediate contents of GridControl to the format specified by ExportFormat.
+    ''' </summary>
+    ''' <param name="PivotGridControl">CridControl contents to export.</param>
+    ''' <param name="ExportFormat">Export data format.</param>
+    Public Sub SavePivotGridControlToExcel(PivotGridControl As PivotGridControl, ExportFormat As ExportFormat)
+        Try
+            Try
+                'Build a save file dialog filter based on ExportFormat
+                Dim Filter As String = ""
+                If ExportFormat = ExportFormat.csv Then
+                    Filter = "Comma Separated Values text files (*.csv)|*.csv"
+                ElseIf ExportFormat = ExportFormat.xlsx Then
+                    Filter = "Excel Files (*.xlsx)|*.xlsx"
+                End If
+
+                'Open a SaveFileDialog to allow the user to choose an export path.
+                Dim SFD As New SaveFileDialog
+                With SFD
+                    .Filter = Filter
+                    .AddExtension = True
+                    .DefaultExt = "." & ExportFormat.ToString
+                    .OverwritePrompt = True
+                    .Title = "Save results"
+                End With
+
+                'Show the save file dialog and if a path is chosen export the control's data to ExportFormat.
+                If SFD.ShowDialog = vbOK Then
+                    Dim Path As String = SFD.FileName
+                    If ExportFormat = ExportFormat.xlsx Then
+                        PivotGridControl.ExportToXlsx(Path)
+                    ElseIf ExportFormat = ExportFormat.csv Then
+                        PivotGridControl.ExportToCsv(Path)
+                    End If
+
+                    'Ask if the user wants to open the exported file
+                    If MsgBox("Open the exported spreadsheet?", MsgBoxStyle.YesNo, "Open the exported spreadsheet?") = MsgBoxResult.Yes Then
+                        Process.Start(Path)
+                    End If
+                End If
+
+            Catch ex As Exception
+                MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+            End Try
         Catch ex As Exception
             MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
