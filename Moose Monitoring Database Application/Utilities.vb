@@ -21,6 +21,86 @@ Module Utilities
     'End Function
 
     ''' <summary>
+    ''' Executes Sql against My.Settings.XXXConnectionString
+    ''' </summary>
+    ''' <param name="Sql">Query to execute.</param>
+    Public Sub ExecuteNonQuery(Sql As String)
+        Try
+            Dim MySqlConnection As New SqlConnection(My.Settings.MooseConnectionString)
+            Dim MySqlCommand As New SqlCommand(Sql, MySqlConnection)
+            MySqlConnection.Open()
+            Dim RowsAffected As Integer = MySqlCommand.ExecuteNonQuery()
+            If RowsAffected = 1 Then
+                MsgBox("Validation succeeded; Updated " & RowsAffected & " row.")
+            ElseIf RowsAffected = 0 Then
+                MsgBox("Error: No rows were updated.")
+            Else
+                MsgBox("Error: multiple rows affected. The query was: " & Sql)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Public Sub ValidateSurvey(SurveyName As String)
+        If MsgBox("Validate " & SurveyName & "?", MsgBoxStyle.YesNo, "Validate") = MsgBoxResult.Yes Then
+            Try
+                Dim Sql As String = "UPDATE GSPE_Surveys SET ValidatedDate=GETDATE(),ValidatedBy=SUSER_NAME() WHERE SurveyName='" & SurveyName & "'"
+                ExecuteNonQuery(Sql)
+            Catch ex As Exception
+                MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+            End Try
+        End If
+
+    End Sub
+
+    Public Sub CertifySurvey(SurveyName As String)
+        If MsgBox("Certify " & SurveyName & "?", MsgBoxStyle.YesNo, "Certify") = MsgBoxResult.Yes Then
+            Try
+                Dim Sql As String = "UPDATE GSPE SET CertificationLevel='Certified',CertifiedBy=SUSER_NAME(),CertificationDate=GetDate() WHERE SurveyName='" & SurveyName & "'"
+                ExecuteNonQuery(Sql)
+            Catch ex As Exception
+                MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+            End Try
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Inventory and Monitoring Network
+    ''' </summary>
+    Enum IMNetwork
+        ARCN
+        CAKN
+    End Enum
+
+    ''' <summary>
+    ''' Opens the moose monitoring shared drive for IMNetwork.
+    ''' </summary>
+    ''' <param name="IMNetwork">I&M Network moose monitoring directory to open.</param>
+    Public Sub OpenMooseDirectory(IMNetwork As IMNetwork)
+        Try
+
+            'Determine the moose monitoring shared directory
+            Dim MooseDirectory As String = ""
+            If IMNetwork = IMNetwork.ARCN Then
+                MooseDirectory = My.Settings.ARCNSharedDrive
+            ElseIf IMNetwork = IMNetwork.CAKN Then
+                MooseDirectory = My.Settings.CAKNSharedDrive
+            End If
+
+            'If the directory exists try to open it
+            If My.Computer.FileSystem.DirectoryExists(My.Settings.ARCNSharedDrive) Then
+                Process.Start(MooseDirectory)
+            Else
+                MsgBox("Directory " & MooseDirectory & " does not exist. Modify the directory path in this application's My.Settings property.")
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    ''' <summary>
     ''' Loads all available queries in the Moose database into QuerySelectorComboBox.
     ''' </summary>
     ''' <param name="QuerySelectorComboBox">ToolStripComboBox into which to load available database queries.</param>

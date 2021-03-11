@@ -54,7 +54,14 @@ Partial Class MainForm
         Me.GSPETableAdapter = New Moose_Monitoring_Database_Application.MooseDataSetTableAdapters.GSPETableAdapter()
         Me.GSPEBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GSPE_SurveyGridControl = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GSPE_SurveyContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OpenReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenSharedDriveDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenARCNMooseMonitoringDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenCAKNMooseMonitoringDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ValidateThisSurveyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CertifyThisSurveyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GSPE_SurveyGridView = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colYear = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colPark = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.colParkSubArea = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -166,6 +173,9 @@ Partial Class MainForm
         Me.rowValidatedDate = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowDataSource = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ReadOnlyToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.ReadOnlyToolStripComboBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenResourcesToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -182,6 +192,12 @@ Partial Class MainForm
         Me.ExportSurveyDataToolStripDropDownButton = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ExcelToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CommaSeparatedValuesTextFileToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DigitalResourcesToolStripDropDownButton = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.HeaderPanel = New System.Windows.Forms.Panel()
         Me.HeaderLabel = New System.Windows.Forms.Label()
         Me.ArcScaleNeedleComponent1 = New DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleNeedleComponent()
@@ -202,13 +218,15 @@ Partial Class MainForm
         Me.ControlContainer2 = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.GSPE_SurveysChartControl = New DevExpress.XtraCharts.ChartControl()
         Me.GSPESurveysBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HelpProvider = New System.Windows.Forms.HelpProvider()
         CType(Me.RepositoryItemDateEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDateEdit4.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MooseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GSPE_SurveysBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GSPEBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GSPE_SurveyGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GSPE_SurveyContextMenuStrip.SuspendLayout()
+        CType(Me.GSPE_SurveyGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDateEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDateEdit1.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemDateEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -360,22 +378,68 @@ Partial Class MainForm
         '
         'GSPE_SurveyGridControl
         '
+        Me.GSPE_SurveyGridControl.ContextMenuStrip = Me.GSPE_SurveyContextMenuStrip
         Me.GSPE_SurveyGridControl.DataSource = Me.GSPE_SurveysBindingSource
         Me.GSPE_SurveyGridControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GSPE_SurveyGridControl.EmbeddedNavigator.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GSPE_SurveysBindingSource, "SurveyName", True))
+        Me.HelpProvider.SetHelpNavigator(Me.GSPE_SurveyGridControl, System.Windows.Forms.HelpNavigator.TableOfContents)
         GridLevelNode1.RelationName = "FK_GSPE_GSPE_Surveys1"
         Me.GSPE_SurveyGridControl.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.GSPE_SurveyGridControl.Location = New System.Drawing.Point(17, 69)
-        Me.GSPE_SurveyGridControl.MainView = Me.GridView1
+        Me.GSPE_SurveyGridControl.Location = New System.Drawing.Point(21, 86)
+        Me.GSPE_SurveyGridControl.MainView = Me.GSPE_SurveyGridView
         Me.GSPE_SurveyGridControl.Name = "GSPE_SurveyGridControl"
         Me.GSPE_SurveyGridControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoEdit6, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemMemoEdit7, Me.RepositoryItemMemoExEdit2, Me.RepositoryItemMemoExEdit3, Me.RepositoryItemDateEdit1, Me.RepositoryItemDateEdit2, Me.RepositoryItemDateEdit3, Me.RepositoryItemComboBox1, Me.RepositoryItemComboBox2, Me.RepositoryItemDateEdit4, Me.ValidatedByRepositoryItemComboBox, Me.NetworkRepositoryItemComboBox})
-        Me.GSPE_SurveyGridControl.Size = New System.Drawing.Size(1308, 763)
+        Me.HelpProvider.SetShowHelp(Me.GSPE_SurveyGridControl, True)
+        Me.GSPE_SurveyGridControl.Size = New System.Drawing.Size(1635, 954)
         Me.GSPE_SurveyGridControl.TabIndex = 2
-        Me.GSPE_SurveyGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.LayoutView1})
+        Me.GSPE_SurveyGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GSPE_SurveyGridView, Me.LayoutView1})
         '
-        'GridView1
+        'GSPE_SurveyContextMenuStrip
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colSurveyName, Me.colYear, Me.colPark, Me.colParkSubArea, Me.colStartDate, Me.colEndDate, Me.colPopulationEstimate, Me.colConfidenceInterval, Me.colPopulationEstimateUpperCI, Me.colPopulationEstimateLowerCI, Me.colEstimatedDensity_SqMi, Me.colAreaSurveyed_mi, Me.colAverageSearchEffort, Me.colPersonnel, Me.colReportReferenceCode, Me.colDeliverablesDatasetReferenceCode, Me.colProtocolReferenceCode, Me.colProtocolVersion, Me.colSurveyDatasetTitle, Me.colRecordInsertedDate, Me.colRecordInsertedBy, Me.SeasonGridColumn, Me.DatasourceGridColumn, Me.MethodologyGridColumn, Me.ValidatedDateGridColumn, Me.ValidatedByColumn, Me.ReportLinkGridColumn, Me.BullCowGridColumn, Me.CalfCowGridColumn, Me.CalfAdultGridColumn, Me.NetworkGridColumn})
+        Me.GSPE_SurveyContextMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.GSPE_SurveyContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenReportToolStripMenuItem, Me.OpenSharedDriveDirectoryToolStripMenuItem, Me.OpenARCNMooseMonitoringDirectoryToolStripMenuItem, Me.OpenCAKNMooseMonitoringDirectoryToolStripMenuItem, Me.ValidateThisSurveyToolStripMenuItem, Me.CertifyThisSurveyToolStripMenuItem})
+        Me.GSPE_SurveyContextMenuStrip.Name = "ContextMenuStrip"
+        Me.GSPE_SurveyContextMenuStrip.Size = New System.Drawing.Size(300, 136)
+        '
+        'OpenReportToolStripMenuItem
+        '
+        Me.OpenReportToolStripMenuItem.Name = "OpenReportToolStripMenuItem"
+        Me.OpenReportToolStripMenuItem.Size = New System.Drawing.Size(299, 22)
+        Me.OpenReportToolStripMenuItem.Text = "Open report..."
+        '
+        'OpenSharedDriveDirectoryToolStripMenuItem
+        '
+        Me.OpenSharedDriveDirectoryToolStripMenuItem.Name = "OpenSharedDriveDirectoryToolStripMenuItem"
+        Me.OpenSharedDriveDirectoryToolStripMenuItem.Size = New System.Drawing.Size(299, 22)
+        Me.OpenSharedDriveDirectoryToolStripMenuItem.Text = "Open Survey directory..."
+        '
+        'OpenARCNMooseMonitoringDirectoryToolStripMenuItem
+        '
+        Me.OpenARCNMooseMonitoringDirectoryToolStripMenuItem.Name = "OpenARCNMooseMonitoringDirectoryToolStripMenuItem"
+        Me.OpenARCNMooseMonitoringDirectoryToolStripMenuItem.Size = New System.Drawing.Size(299, 22)
+        Me.OpenARCNMooseMonitoringDirectoryToolStripMenuItem.Text = "Open ARCN moose monitoring directory..."
+        '
+        'OpenCAKNMooseMonitoringDirectoryToolStripMenuItem
+        '
+        Me.OpenCAKNMooseMonitoringDirectoryToolStripMenuItem.Name = "OpenCAKNMooseMonitoringDirectoryToolStripMenuItem"
+        Me.OpenCAKNMooseMonitoringDirectoryToolStripMenuItem.Size = New System.Drawing.Size(299, 22)
+        Me.OpenCAKNMooseMonitoringDirectoryToolStripMenuItem.Text = "Open CAKN moose monitoring directory..."
+        '
+        'ValidateThisSurveyToolStripMenuItem
+        '
+        Me.ValidateThisSurveyToolStripMenuItem.Name = "ValidateThisSurveyToolStripMenuItem"
+        Me.ValidateThisSurveyToolStripMenuItem.Size = New System.Drawing.Size(299, 22)
+        Me.ValidateThisSurveyToolStripMenuItem.Text = "Validate this survey..."
+        '
+        'CertifyThisSurveyToolStripMenuItem
+        '
+        Me.CertifyThisSurveyToolStripMenuItem.Name = "CertifyThisSurveyToolStripMenuItem"
+        Me.CertifyThisSurveyToolStripMenuItem.Size = New System.Drawing.Size(299, 22)
+        Me.CertifyThisSurveyToolStripMenuItem.Text = "Certify this survey..."
+        '
+        'GSPE_SurveyGridView
+        '
+        Me.GSPE_SurveyGridView.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colSurveyName, Me.colYear, Me.colPark, Me.colParkSubArea, Me.colStartDate, Me.colEndDate, Me.colPopulationEstimate, Me.colConfidenceInterval, Me.colPopulationEstimateUpperCI, Me.colPopulationEstimateLowerCI, Me.colEstimatedDensity_SqMi, Me.colAreaSurveyed_mi, Me.colAverageSearchEffort, Me.colPersonnel, Me.colReportReferenceCode, Me.colDeliverablesDatasetReferenceCode, Me.colProtocolReferenceCode, Me.colProtocolVersion, Me.colSurveyDatasetTitle, Me.colRecordInsertedDate, Me.colRecordInsertedBy, Me.SeasonGridColumn, Me.DatasourceGridColumn, Me.MethodologyGridColumn, Me.ValidatedDateGridColumn, Me.ValidatedByColumn, Me.ReportLinkGridColumn, Me.BullCowGridColumn, Me.CalfCowGridColumn, Me.CalfAdultGridColumn, Me.NetworkGridColumn})
         GridFormatRule1.Column = Me.colReportReferenceCode
         GridFormatRule1.Name = "ReportReferenceCode_NULL_Format"
         FormatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -406,19 +470,19 @@ Partial Class MainForm
         FormatConditionRuleValue4.Condition = DevExpress.XtraEditors.FormatCondition.Greater
         FormatConditionRuleValue4.Value1 = New Date(1900, 3, 2, 12, 14, 13, 0)
         GridFormatRule4.Rule = FormatConditionRuleValue4
-        Me.GridView1.FormatRules.Add(GridFormatRule1)
-        Me.GridView1.FormatRules.Add(GridFormatRule2)
-        Me.GridView1.FormatRules.Add(GridFormatRule3)
-        Me.GridView1.FormatRules.Add(GridFormatRule4)
-        Me.GridView1.GridControl = Me.GSPE_SurveyGridControl
-        Me.GridView1.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Average, "PopulationEstimate", Nothing, "(Population Estimate: AVG={0:0.##})")})
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
-        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
-        Me.GridView1.OptionsView.ShowFooter = True
-        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.ValidatedDateGridColumn, DevExpress.Data.ColumnSortOrder.Descending), New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colSurveyName, DevExpress.Data.ColumnSortOrder.Descending)})
+        Me.GSPE_SurveyGridView.FormatRules.Add(GridFormatRule1)
+        Me.GSPE_SurveyGridView.FormatRules.Add(GridFormatRule2)
+        Me.GSPE_SurveyGridView.FormatRules.Add(GridFormatRule3)
+        Me.GSPE_SurveyGridView.FormatRules.Add(GridFormatRule4)
+        Me.GSPE_SurveyGridView.GridControl = Me.GSPE_SurveyGridControl
+        Me.GSPE_SurveyGridView.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Average, "PopulationEstimate", Nothing, "(Population Estimate: AVG={0:0.##})")})
+        Me.GSPE_SurveyGridView.Name = "GSPE_SurveyGridView"
+        Me.GSPE_SurveyGridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
+        Me.GSPE_SurveyGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GSPE_SurveyGridView.OptionsView.ColumnAutoWidth = False
+        Me.GSPE_SurveyGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
+        Me.GSPE_SurveyGridView.OptionsView.ShowFooter = True
+        Me.GSPE_SurveyGridView.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.ValidatedDateGridColumn, DevExpress.Data.ColumnSortOrder.Descending), New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colSurveyName, DevExpress.Data.ColumnSortOrder.Descending)})
         '
         'colYear
         '
@@ -760,7 +824,7 @@ Partial Class MainForm
         Me.ResultsXtraTabControl.Location = New System.Drawing.Point(0, 0)
         Me.ResultsXtraTabControl.Name = "ResultsXtraTabControl"
         Me.ResultsXtraTabControl.SelectedTabPage = Me.ResultsXtraTabPage
-        Me.ResultsXtraTabControl.Size = New System.Drawing.Size(1650, 463)
+        Me.ResultsXtraTabControl.Size = New System.Drawing.Size(1629, 463)
         Me.ResultsXtraTabControl.TabIndex = 5
         Me.ResultsXtraTabControl.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.ResultsXtraTabPage, Me.ResultsPivotXtraTabPage})
         '
@@ -769,7 +833,7 @@ Partial Class MainForm
         Me.ResultsXtraTabPage.Controls.Add(Me.ResultsGridControl)
         Me.ResultsXtraTabPage.Controls.Add(Me.ResultsToolStrip)
         Me.ResultsXtraTabPage.Name = "ResultsXtraTabPage"
-        Me.ResultsXtraTabPage.Size = New System.Drawing.Size(1648, 438)
+        Me.ResultsXtraTabPage.Size = New System.Drawing.Size(1627, 438)
         Me.ResultsXtraTabPage.Text = "Results"
         '
         'ResultsGridControl
@@ -778,7 +842,7 @@ Partial Class MainForm
         Me.ResultsGridControl.Location = New System.Drawing.Point(0, 25)
         Me.ResultsGridControl.MainView = Me.ResultsView
         Me.ResultsGridControl.Name = "ResultsGridControl"
-        Me.ResultsGridControl.Size = New System.Drawing.Size(1648, 413)
+        Me.ResultsGridControl.Size = New System.Drawing.Size(1627, 413)
         Me.ResultsGridControl.TabIndex = 0
         Me.ResultsGridControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.ResultsView})
         '
@@ -795,7 +859,7 @@ Partial Class MainForm
         Me.ResultsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.SelectAQueryToolStripComboBox, Me.ToolStripSeparator6, Me.ExportGridControlToolStripDropDownButton})
         Me.ResultsToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ResultsToolStrip.Name = "ResultsToolStrip"
-        Me.ResultsToolStrip.Size = New System.Drawing.Size(1648, 25)
+        Me.ResultsToolStrip.Size = New System.Drawing.Size(1627, 25)
         Me.ResultsToolStrip.TabIndex = 3
         Me.ResultsToolStrip.Text = "ToolStrip2"
         '
@@ -844,7 +908,7 @@ Partial Class MainForm
         Me.ResultsPivotXtraTabPage.Controls.Add(Me.ResultsPivotChartControl)
         Me.ResultsPivotXtraTabPage.Controls.Add(Me.ResultsPivotToolStrip)
         Me.ResultsPivotXtraTabPage.Name = "ResultsPivotXtraTabPage"
-        Me.ResultsPivotXtraTabPage.Size = New System.Drawing.Size(1648, 438)
+        Me.ResultsPivotXtraTabPage.Size = New System.Drawing.Size(1627, 438)
         Me.ResultsPivotXtraTabPage.Text = "Analytics"
         '
         'ResultsPivotGridControl
@@ -852,7 +916,7 @@ Partial Class MainForm
         Me.ResultsPivotGridControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ResultsPivotGridControl.Location = New System.Drawing.Point(0, 25)
         Me.ResultsPivotGridControl.Name = "ResultsPivotGridControl"
-        Me.ResultsPivotGridControl.Size = New System.Drawing.Size(1648, 413)
+        Me.ResultsPivotGridControl.Size = New System.Drawing.Size(1627, 413)
         Me.ResultsPivotGridControl.TabIndex = 4
         '
         'ResultsPivotChartControl
@@ -872,7 +936,7 @@ Partial Class MainForm
         Me.ResultsPivotChartControl.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative
         Me.ResultsPivotChartControl.SeriesTemplate.SeriesDataMember = "Series"
         Me.ResultsPivotChartControl.SeriesTemplate.ValueDataMembersSerializable = "Values"
-        Me.ResultsPivotChartControl.Size = New System.Drawing.Size(1648, 413)
+        Me.ResultsPivotChartControl.Size = New System.Drawing.Size(1627, 413)
         Me.ResultsPivotChartControl.TabIndex = 5
         '
         'ResultsPivotToolStrip
@@ -881,7 +945,7 @@ Partial Class MainForm
         Me.ResultsPivotToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2, Me.SelectAResultsPivotDatasourceToolStripComboBox, Me.SelectAResultsPivotDatasourceToolStripButton, Me.ToolStripSeparator5, Me.ExportPivotGridContentsToolStripDropDownButton})
         Me.ResultsPivotToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ResultsPivotToolStrip.Name = "ResultsPivotToolStrip"
-        Me.ResultsPivotToolStrip.Size = New System.Drawing.Size(1648, 25)
+        Me.ResultsPivotToolStrip.Size = New System.Drawing.Size(1627, 25)
         Me.ResultsPivotToolStrip.TabIndex = 6
         Me.ResultsPivotToolStrip.Text = "ToolStrip2"
         '
@@ -1256,12 +1320,31 @@ Partial Class MainForm
         'ToolStrip1
         '
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.OpenResourcesToolStripButton, Me.ToolStripSeparator2, Me.CertifySurveyToolStripButton, Me.ToolStripSeparator3, Me.RefreshDatasetToolStripButton, Me.ToolStripSeparator4, Me.AnalyticsToolStripDropDownButton, Me.ToolStripSeparator7, Me.ExportSurveyDataToolStripDropDownButton})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReadOnlyToolStripLabel, Me.ReadOnlyToolStripComboBox, Me.ToolStripSeparator10, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.OpenResourcesToolStripButton, Me.ToolStripSeparator2, Me.CertifySurveyToolStripButton, Me.ToolStripSeparator3, Me.RefreshDatasetToolStripButton, Me.ToolStripSeparator4, Me.AnalyticsToolStripDropDownButton, Me.ToolStripSeparator7, Me.ExportSurveyDataToolStripDropDownButton, Me.ToolStripSeparator8, Me.DigitalResourcesToolStripDropDownButton, Me.ToolStripSeparator9, Me.HelpToolStripButton})
         Me.ToolStrip1.Location = New System.Drawing.Point(21, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1635, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ReadOnlyToolStripLabel
+        '
+        Me.ReadOnlyToolStripLabel.Name = "ReadOnlyToolStripLabel"
+        Me.ReadOnlyToolStripLabel.Size = New System.Drawing.Size(62, 22)
+        Me.ReadOnlyToolStripLabel.Text = "Read only:"
+        '
+        'ReadOnlyToolStripComboBox
+        '
+        Me.ReadOnlyToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ReadOnlyToolStripComboBox.Items.AddRange(New Object() {"False", "True"})
+        Me.ReadOnlyToolStripComboBox.Name = "ReadOnlyToolStripComboBox"
+        Me.ReadOnlyToolStripComboBox.Size = New System.Drawing.Size(75, 25)
+        Me.ReadOnlyToolStripComboBox.Text = "True"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 25)
         '
         'SaveToolStripButton
         '
@@ -1373,6 +1456,47 @@ Partial Class MainForm
         Me.CommaSeparatedValuesTextFileToolStripMenuItem2.Name = "CommaSeparatedValuesTextFileToolStripMenuItem2"
         Me.CommaSeparatedValuesTextFileToolStripMenuItem2.Size = New System.Drawing.Size(257, 22)
         Me.CommaSeparatedValuesTextFileToolStripMenuItem2.Text = "Comma separated values text file..."
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 25)
+        '
+        'DigitalResourcesToolStripDropDownButton
+        '
+        Me.DigitalResourcesToolStripDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.DigitalResourcesToolStripDropDownButton.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem, Me.OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem})
+        Me.DigitalResourcesToolStripDropDownButton.Image = CType(resources.GetObject("DigitalResourcesToolStripDropDownButton.Image"), System.Drawing.Image)
+        Me.DigitalResourcesToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.DigitalResourcesToolStripDropDownButton.Name = "DigitalResourcesToolStripDropDownButton"
+        Me.DigitalResourcesToolStripDropDownButton.Size = New System.Drawing.Size(107, 22)
+        Me.DigitalResourcesToolStripDropDownButton.Text = "Digital resources"
+        '
+        'OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem
+        '
+        Me.OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem.Name = "OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem"
+        Me.OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem.Size = New System.Drawing.Size(366, 22)
+        Me.OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem.Text = "Open ARCN moose monitoring shared drive directory..."
+        '
+        'OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem
+        '
+        Me.OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem.Name = "OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem"
+        Me.OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem.Size = New System.Drawing.Size(366, 22)
+        Me.OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem.Text = "Open CAKN moose monitoring shared drive directory..."
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+        '
+        'HelpToolStripButton
+        '
+        Me.HelpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.HelpToolStripButton.Image = CType(resources.GetObject("HelpToolStripButton.Image"), System.Drawing.Image)
+        Me.HelpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.HelpToolStripButton.Name = "HelpToolStripButton"
+        Me.HelpToolStripButton.Size = New System.Drawing.Size(59, 22)
+        Me.HelpToolStripButton.Text = "Help (F1)"
         '
         'HeaderPanel
         '
@@ -1507,7 +1631,7 @@ Partial Class MainForm
         Me.ResultsDockPanel.OriginalSize = New System.Drawing.Size(200, 493)
         Me.ResultsDockPanel.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Bottom
         Me.ResultsDockPanel.SavedIndex = 1
-        Me.ResultsDockPanel.Size = New System.Drawing.Size(1656, 493)
+        Me.ResultsDockPanel.Size = New System.Drawing.Size(1635, 493)
         Me.ResultsDockPanel.Text = "Results and analytics"
         Me.ResultsDockPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide
         '
@@ -1516,7 +1640,7 @@ Partial Class MainForm
         Me.ControlContainer1.Controls.Add(Me.ResultsXtraTabControl)
         Me.ControlContainer1.Location = New System.Drawing.Point(3, 27)
         Me.ControlContainer1.Name = "ControlContainer1"
-        Me.ControlContainer1.Size = New System.Drawing.Size(1650, 463)
+        Me.ControlContainer1.Size = New System.Drawing.Size(1629, 463)
         Me.ControlContainer1.TabIndex = 0
         '
         'hideContainerLeft
@@ -1621,6 +1745,11 @@ Partial Class MainForm
         Me.GSPESurveysBindingSource1.DataMember = "GSPE_Surveys"
         Me.GSPESurveysBindingSource1.DataSource = Me.MooseDataSet
         '
+        'HelpProvider
+        '
+        Me.HelpProvider.HelpNamespace = "C:\Work\Code\Moose Monitoring Database Application\Moose Monitoring Database Appl" &
+    "ication\Moose Monitoring Database Application.chm"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1632,7 +1761,10 @@ Partial Class MainForm
         Me.Controls.Add(Me.hideContainerBottom)
         Me.Controls.Add(Me.hideContainerLeft)
         Me.Controls.Add(Me.hideContainerRight)
+        Me.HelpButton = True
+        Me.HelpProvider.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "MainForm"
+        Me.HelpProvider.SetShowHelp(Me, True)
         Me.Text = "Moose"
         CType(Me.RepositoryItemDateEdit4.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemDateEdit4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1640,7 +1772,8 @@ Partial Class MainForm
         CType(Me.GSPE_SurveysBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GSPEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GSPE_SurveyGridControl, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GSPE_SurveyContextMenuStrip.ResumeLayout(False)
+        CType(Me.GSPE_SurveyGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemDateEdit1.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemDateEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemDateEdit2.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1740,7 +1873,7 @@ Partial Class MainForm
     Private WithEvents ArcScaleRangeBarComponent1 As DevExpress.XtraGauges.Win.Gauges.Circular.ArcScaleRangeBarComponent
     Friend WithEvents HeaderPanel As Panel
     Friend WithEvents GSPE_SurveyGridControl As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GSPE_SurveyGridView As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents colSurveyName As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colYear As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPark As DevExpress.XtraGrid.Columns.GridColumn
@@ -1875,4 +2008,21 @@ Partial Class MainForm
     Friend WithEvents rowValidatedBy As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents rowValidatedDate As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents rowDataSource As DevExpress.XtraVerticalGrid.Rows.EditorRow
+    Friend WithEvents GSPE_SurveyContextMenuStrip As ContextMenuStrip
+    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
+    Friend WithEvents DigitalResourcesToolStripDropDownButton As ToolStripDropDownButton
+    Friend WithEvents OpenARCNMooseMonitoringSharedDriveDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenCAKNMooseMonitoringSharedDriveDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenSharedDriveDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenARCNMooseMonitoringDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenCAKNMooseMonitoringDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents ReadOnlyToolStripLabel As ToolStripLabel
+    Friend WithEvents ReadOnlyToolStripComboBox As ToolStripComboBox
+    Friend WithEvents ValidateThisSurveyToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CertifyThisSurveyToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpProvider As HelpProvider
+    Friend WithEvents HelpToolStripButton As ToolStripButton
 End Class

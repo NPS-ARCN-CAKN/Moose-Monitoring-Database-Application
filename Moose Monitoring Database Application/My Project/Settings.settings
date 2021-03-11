@@ -10,5 +10,14 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=inpyugamsvm01\nuna_dev;Initial Catalog=Moose;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="ARCNSharedDrive" Type="System.String" Scope="User">
+      <Value Profile="(Default)">O:\Monitoring\Vital Signs\Moose</Value>
+    </Setting>
+    <Setting Name="CAKNSharedDrive" Type="System.String" Scope="User">
+      <Value Profile="(Default)">J:\Monitoring\Moose</Value>
+    </Setting>
+    <Setting Name="IRMAReferenceLinkPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://irma.nps.gov/DataStore/Reference/Profile/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -64,6 +64,42 @@ Namespace My
                 Return CType(Me("MooseConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("O:\Monitoring\Vital Signs\Moose")>  _
+        Public Property ARCNSharedDrive() As String
+            Get
+                Return CType(Me("ARCNSharedDrive"),String)
+            End Get
+            Set
+                Me("ARCNSharedDrive") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("J:\Monitoring\Moose")>  _
+        Public Property CAKNSharedDrive() As String
+            Get
+                Return CType(Me("CAKNSharedDrive"),String)
+            End Get
+            Set
+                Me("CAKNSharedDrive") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://irma.nps.gov/DataStore/Reference/Profile/")>  _
+        Public Property IRMAReferenceLinkPrefix() As String
+            Get
+                Return CType(Me("IRMAReferenceLinkPrefix"),String)
+            End Get
+            Set
+                Me("IRMAReferenceLinkPrefix") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
