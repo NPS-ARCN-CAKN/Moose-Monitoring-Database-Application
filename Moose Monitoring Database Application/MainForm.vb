@@ -105,6 +105,10 @@ Public Class MainForm
                 If Not IsDBNull(DR.Item("DataSource")) Then
                     'Reassign CurrentSurveyName
                     CurrentDataSource = DR.Item("DataSource")
+                    If My.Computer.FileSystem.DirectoryExists(CurrentDataSource) = False Then
+                        CurrentDataSource = ""
+                        DR.Item("DataSource") = "Error: " & CurrentDataSource & " does not exist."
+                    End If
                 Else
                     CurrentDataSource = ""
                 End If
@@ -371,6 +375,7 @@ Public Class MainForm
             If My.Computer.FileSystem.DirectoryExists(CurrentDataSource) Then
                 Process.Start(CurrentDataSource)
             Else
+                CurrentDataSource = ""
                 MsgBox("Directory " & CurrentDataSource & " for the Survey " & CurrentSurveyName & " does not exist. Modify the directory path in this application's My.Settings property.")
             End If
 

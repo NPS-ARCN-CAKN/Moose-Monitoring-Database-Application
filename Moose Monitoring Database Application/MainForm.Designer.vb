@@ -871,7 +871,6 @@ Partial Class MainForm
         '
         'SelectAQueryToolStripComboBox
         '
-        Me.SelectAQueryToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SelectAQueryToolStripComboBox.Name = "SelectAQueryToolStripComboBox"
         Me.SelectAQueryToolStripComboBox.Size = New System.Drawing.Size(400, 25)
         '
@@ -887,7 +886,7 @@ Partial Class MainForm
         Me.ExportGridControlToolStripDropDownButton.Image = CType(resources.GetObject("ExportGridControlToolStripDropDownButton.Image"), System.Drawing.Image)
         Me.ExportGridControlToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ExportGridControlToolStripDropDownButton.Name = "ExportGridControlToolStripDropDownButton"
-        Me.ExportGridControlToolStripDropDownButton.Size = New System.Drawing.Size(95, 22)
+        Me.ExportGridControlToolStripDropDownButton.Size = New System.Drawing.Size(94, 22)
         Me.ExportGridControlToolStripDropDownButton.Text = "Export dataset"
         '
         'ExcelToolStripMenuItem1
@@ -957,7 +956,6 @@ Partial Class MainForm
         '
         'SelectAResultsPivotDatasourceToolStripComboBox
         '
-        Me.SelectAResultsPivotDatasourceToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SelectAResultsPivotDatasourceToolStripComboBox.Name = "SelectAResultsPivotDatasourceToolStripComboBox"
         Me.SelectAResultsPivotDatasourceToolStripComboBox.Size = New System.Drawing.Size(121, 25)
         '
@@ -982,7 +980,7 @@ Partial Class MainForm
         Me.ExportPivotGridContentsToolStripDropDownButton.Image = CType(resources.GetObject("ExportPivotGridContentsToolStripDropDownButton.Image"), System.Drawing.Image)
         Me.ExportPivotGridContentsToolStripDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ExportPivotGridContentsToolStripDropDownButton.Name = "ExportPivotGridContentsToolStripDropDownButton"
-        Me.ExportPivotGridContentsToolStripDropDownButton.Size = New System.Drawing.Size(107, 22)
+        Me.ExportPivotGridContentsToolStripDropDownButton.Size = New System.Drawing.Size(106, 22)
         Me.ExportPivotGridContentsToolStripDropDownButton.Text = "Export summary"
         '
         'ExcelToolStripMenuItem
@@ -1335,7 +1333,6 @@ Partial Class MainForm
         '
         'ReadOnlyToolStripComboBox
         '
-        Me.ReadOnlyToolStripComboBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ReadOnlyToolStripComboBox.Items.AddRange(New Object() {"False", "True"})
         Me.ReadOnlyToolStripComboBox.Name = "ReadOnlyToolStripComboBox"
         Me.ReadOnlyToolStripComboBox.Size = New System.Drawing.Size(75, 25)
@@ -1625,7 +1622,7 @@ Partial Class MainForm
         Me.ResultsDockPanel.Controls.Add(Me.ControlContainer1)
         Me.ResultsDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom
         Me.ResultsDockPanel.ID = New System.Guid("24e5cfc2-7b7f-4d74-a4d7-1e3391728b0b")
-        Me.ResultsDockPanel.Location = New System.Drawing.Point(0, 0)
+        Me.ResultsDockPanel.Location = New System.Drawing.Point(17, 438)
         Me.ResultsDockPanel.Name = "ResultsDockPanel"
         Me.ResultsDockPanel.Options.ShowCloseButton = False
         Me.ResultsDockPanel.OriginalSize = New System.Drawing.Size(200, 493)
@@ -1657,7 +1654,7 @@ Partial Class MainForm
         Me.GSPE_SurveyDockPanel.Controls.Add(Me.DockPanel1_Container)
         Me.GSPE_SurveyDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left
         Me.GSPE_SurveyDockPanel.ID = New System.Guid("7deb0775-2796-40ba-9ca1-5db2af94e419")
-        Me.GSPE_SurveyDockPanel.Location = New System.Drawing.Point(0, 0)
+        Me.GSPE_SurveyDockPanel.Location = New System.Drawing.Point(17, 0)
         Me.GSPE_SurveyDockPanel.Name = "GSPE_SurveyDockPanel"
         Me.GSPE_SurveyDockPanel.OriginalSize = New System.Drawing.Size(600, 200)
         Me.GSPE_SurveyDockPanel.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left
@@ -1688,7 +1685,7 @@ Partial Class MainForm
         Me.ChartDockPanel.Controls.Add(Me.ControlContainer2)
         Me.ChartDockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right
         Me.ChartDockPanel.ID = New System.Guid("93af393c-f2d8-47fa-b617-c92fc161dc19")
-        Me.ChartDockPanel.Location = New System.Drawing.Point(0, 0)
+        Me.ChartDockPanel.Location = New System.Drawing.Point(227, 0)
         Me.ChartDockPanel.Name = "ChartDockPanel"
         Me.ChartDockPanel.Options.ShowCloseButton = False
         Me.ChartDockPanel.OriginalSize = New System.Drawing.Size(1372, 200)
