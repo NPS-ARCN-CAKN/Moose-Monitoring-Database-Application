@@ -107,7 +107,6 @@ Public Class MainForm
                     CurrentDataSource = DR.Item("DataSource")
                     If My.Computer.FileSystem.DirectoryExists(CurrentDataSource) = False Then
                         CurrentDataSource = ""
-                        DR.Item("DataSource") = "Error: " & CurrentDataSource & " does not exist."
                     End If
                 Else
                     CurrentDataSource = ""
@@ -122,28 +121,28 @@ Public Class MainForm
 
 
 
-    Private Sub OpenResourcesToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenResourcesToolStripButton.Click
-        Try
-            Dim DR As DataRowView = GSPE_SurveysBindingSource.Current
+    'Private Sub OpenResourcesToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenResourcesToolStripButton.Click
+    '    Try
+    '        Dim DR As DataRowView = GSPE_SurveysBindingSource.Current
 
-            Dim ReportReferenceCode As Integer = 0
-            If Not IsDBNull(DR.Item("ReportReferenceCode")) Then ReportReferenceCode = DR.Item("ReportReferenceCode")
+    '        Dim ReportReferenceCode As Integer = 0
+    '        If Not IsDBNull(DR.Item("ReportReferenceCode")) Then ReportReferenceCode = DR.Item("ReportReferenceCode")
 
-            Dim DeliverablesDatasetReferenceCode As Integer = 0
-            If Not IsDBNull(DR.Item("DeliverablesDatasetReferenceCode")) Then DeliverablesDatasetReferenceCode = DR.Item("DeliverablesDatasetReferenceCode")
+    '        Dim DeliverablesDatasetReferenceCode As Integer = 0
+    '        If Not IsDBNull(DR.Item("DeliverablesDatasetReferenceCode")) Then DeliverablesDatasetReferenceCode = DR.Item("DeliverablesDatasetReferenceCode")
 
-            Dim ProtocolReferenceCode As Integer = 0
-            If Not IsDBNull(DR.Item("ProtocolReferenceCode")) Then ProtocolReferenceCode = DR.Item("ProtocolReferenceCode")
+    '        Dim ProtocolReferenceCode As Integer = 0
+    '        If Not IsDBNull(DR.Item("ProtocolReferenceCode")) Then ProtocolReferenceCode = DR.Item("ProtocolReferenceCode")
 
-            Dim URLPrefix As String = "https://irma.nps.gov/DataStore/Reference/Profile/"
+    '        Dim URLPrefix As String = "https://irma.nps.gov/DataStore/Reference/Profile/"
 
-            If Not IsDBNull(ReportReferenceCode) And ReportReferenceCode > 0 Then OpenProcess(URLPrefix & ReportReferenceCode)
-            If Not IsDBNull(DeliverablesDatasetReferenceCode) And DeliverablesDatasetReferenceCode > 0 Then OpenProcess(URLPrefix & DeliverablesDatasetReferenceCode)
-            If Not IsDBNull(ProtocolReferenceCode) And ProtocolReferenceCode > 0 Then OpenProcess(URLPrefix & ProtocolReferenceCode)
-        Catch ex As Exception
-            MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
-    End Sub
+    '        If Not IsDBNull(ReportReferenceCode) And ReportReferenceCode > 0 Then OpenProcess(URLPrefix & ReportReferenceCode)
+    '        If Not IsDBNull(DeliverablesDatasetReferenceCode) And DeliverablesDatasetReferenceCode > 0 Then OpenProcess(URLPrefix & DeliverablesDatasetReferenceCode)
+    '        If Not IsDBNull(ProtocolReferenceCode) And ProtocolReferenceCode > 0 Then OpenProcess(URLPrefix & ProtocolReferenceCode)
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message & "  " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+    '    End Try
+    'End Sub
 
     Private Function GetCurrentSurveyValue(ColumnName As String) As String
         Dim ReturnValue As String = ""
@@ -170,24 +169,22 @@ Public Class MainForm
         End Try
     End Sub
 
-    Private Sub CertifySurveyToolStripButton_Click(sender As Object, e As EventArgs) Handles CertifySurveyToolStripButton.Click
-        Dim SurveyName As String = GetCurrentSurveyValue("SurveyName")
-        If SurveyName.Trim.Length > 0 Then
-            Dim CertificationQuery As String = "UPDATE GSPE SET CertificationLevel='Certified',CertifiedBy=Suser_Name(),CertificationDate=GetDate() WHERE SurveyName = '" & SurveyName & "'"
-            If MsgBox("Copy certification query (" & CertificationQuery & ") to clipboard?", MsgBoxStyle.YesNo, "Certify this survey") = vbYes Then
-                My.Computer.Clipboard.SetText(CertificationQuery)
-            End If
-        End If
-    End Sub
+    'Private Sub CertifySurveyToolStripButton_Click(sender As Object, e As EventArgs) Handles CertifySurveyToolStripButton.Click
+    '    Dim SurveyName As String = GetCurrentSurveyValue("SurveyName")
+    '    If SurveyName.Trim.Length > 0 Then
+    '        Dim CertificationQuery As String = "UPDATE GSPE SET CertificationLevel='Certified',CertifiedBy=Suser_Name(),CertificationDate=GetDate() WHERE SurveyName = '" & SurveyName & "'"
+    '        If MsgBox("Copy certification query (" & CertificationQuery & ") to clipboard?", MsgBoxStyle.YesNo, "Certify this survey") = vbYes Then
+    '            My.Computer.Clipboard.SetText(CertificationQuery)
+    '        End If
+    '    End If
+    'End Sub
 
     Private Sub RefreshDatasetToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshDatasetToolStripButton.Click
         LoadDataset()
     End Sub
 
 
-    Private Sub SelectAResultsPivotDatasourceToolStripButton_Click(sender As Object, e As EventArgs) Handles SelectAResultsPivotDatasourceToolStripButton.Click
-        LoadResultsPivotGrid()
-    End Sub
+
 
     Private Sub LoadResultsGrid()
         Try
@@ -425,5 +422,13 @@ Public Class MainForm
 
     Private Sub HelpToolStripButton_Click(sender As Object, e As EventArgs) Handles HelpToolStripButton.Click
         HelpProvider.SetHelpNavigator(Me, HelpNavigator.TableOfContents)
+    End Sub
+
+    Private Sub SelectAResultsPivotDatasourceToolStripComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SelectAResultsPivotDatasourceToolStripComboBox.SelectedIndexChanged
+        LoadResultsPivotGrid()
+    End Sub
+
+    Private Sub GSPE_SurveyGridControl_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles GSPE_SurveyGridControl.Validating
+
     End Sub
 End Class

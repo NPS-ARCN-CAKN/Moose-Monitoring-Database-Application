@@ -2126,6 +2126,7 @@ Partial Public Class MooseDataSet
             Me.columnSurveyName.MaxLength = 100
             Me.columnYear.AllowDBNull = false
             Me.columnPark.MaxLength = 4
+            Me.columnParkSubArea.AllowDBNull = false
             Me.columnParkSubArea.MaxLength = 50
             Me.columnPersonnel.MaxLength = 200
             Me.columnSurveyDatasetTitle.MaxLength = 100
@@ -4024,11 +4025,7 @@ Partial Public Class MooseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property ParkSubArea() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableGSPE_Surveys.ParkSubAreaColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ParkSubArea' in table 'GSPE_Surveys' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableGSPE_Surveys.ParkSubAreaColumn),String)
             End Get
             Set
                 Me(Me.tableGSPE_Surveys.ParkSubAreaColumn) = value
@@ -4505,18 +4502,6 @@ Partial Public Class MooseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetParkNull()
             Me(Me.tableGSPE_Surveys.ParkColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsParkSubAreaNull() As Boolean
-            Return Me.IsNull(Me.tableGSPE_Surveys.ParkSubAreaColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetParkSubAreaNull()
-            Me(Me.tableGSPE_Surveys.ParkSubAreaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8433,8 +8418,7 @@ Namespace MooseDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Park,String)
             End If
             If (Original_ParkSubArea Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Original_ParkSubArea")
             Else
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_ParkSubArea,String)
@@ -8685,7 +8669,7 @@ Namespace MooseDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(Park,String)
             End If
             If (ParkSubArea Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("ParkSubArea")
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(ParkSubArea,String)
             End If
@@ -8938,7 +8922,7 @@ Namespace MooseDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Park,String)
             End If
             If (ParkSubArea Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("ParkSubArea")
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ParkSubArea,String)
             End If
@@ -9109,8 +9093,7 @@ Namespace MooseDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_Park,String)
             End If
             If (Original_ParkSubArea Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Original_ParkSubArea")
             Else
                 Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_ParkSubArea,String)
